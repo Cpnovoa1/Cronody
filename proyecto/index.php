@@ -88,7 +88,7 @@
 ?>
 <body>
 	<div class="contenedor-logo">
-		<img src="img/logo_login.svg" alt="logo" width="90%">
+		<img src="img/logo_login.svg" alt="logo" width="60%">
 	</div>
 	<div class="contenedor centrar">
 		<form id="form1" name="form1" method="post" action="#">
