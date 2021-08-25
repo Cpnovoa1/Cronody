@@ -46,7 +46,7 @@
           <li>
             <div class="iocn-link">
               <a href="#">
-                <i class='bx bx-book-alt' ></i>
+                <i class='fas fa-user' ></i>
                 <span class="link_name">Usuarios</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
@@ -62,7 +62,7 @@
           <li>
             <div class="iocn-link">
               <a href="#">
-                <i class='bx bx-collection' ></i>
+                <i class='fas fa-users'></i></i>
                 <span class="link_name">Perfiles</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
@@ -110,7 +110,7 @@
 			<li>
             <div class="iocn-link">
               <a href="#">
-                <i class='bx bx-collection' ></i>
+                <i class='fas fa-school' ></i>
                 <span class="link_name">Cursos</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
@@ -145,7 +145,7 @@
           
           <li>
             <a href="#">
-              <i class='bx bx-line-chart' ></i>
+              <i class='fas fa-book' ></i>
               <span class="link_name">Registros</span>
             </a>
             <ul class="sub-menu blank">
@@ -155,7 +155,7 @@
           <li>
             <div class="iocn-link">
               <a href="#">
-                <i class='bx bx-plug' ></i>
+                <i class='fas fa-address-book' ></i>
                 <span class="link_name">Auditoria</span>
               </a>
               <i class='bx bxs-chevron-down arrow' ></i>
@@ -175,18 +175,18 @@
             <img src="../img/logo-admin.svg" alt="profileImg">
           </div>
           <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
+            <div class="profile_name">Administrador</div>
+            <div class="job">Nombre Admin</div>
           </div>
-          <a onClick="mostrar()"><i class='bx bx-log-out'></i></a>
+          <a onMouseOver="tag-cerrars()" onMouseOut="tag-cerrars-out()" onClick="mostrar()"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a>
+			<div class="cerrarses cerrarses-out" id="idcerrarses">Cerrar Sesion</div>
         </div>
 	         </li>
     </ul>
       </div>
       <section class="home-section">
         <div class="home-content">
-          <i class='bx bx-menu' ></i>
-          <span class="text">Drop Down barralat</span>
+          <span class="text">Aqui vendría el iframe</span>
         </div>
       </section>
       <script>
@@ -224,8 +224,20 @@
       function cerrar_sesion(){
 		  document.getElementById("idcerrars").setAttribute("href","cerrarsesion.php")
 	  }
+		  
+	  function tag_cerrars(){
+		  alert("mouseover");
+		  document.getElementById("idcerrarses").classList.remove("cerrarses-out");
+	  }
+		  
+	  function tag_cerrars_out(){
+	  		alert("mouseout")
+		   document.getElementById("idcerrarses").classList.add("cerrarses-out");
+	  }
 	  
 	  document.getElementById("idcerrars").addEventListener("click", cerrar_sesion());
+	  document.getElementById("idsalir").addEventListener("mouseover", tag_cerrars());
+	  document.getElementById("idsalir").addEventListener("mouseout", tag_cerrars_out());
     </script>
 </body>
 </html>
