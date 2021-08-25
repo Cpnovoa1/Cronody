@@ -2,6 +2,13 @@
 
     session_start();
 
+	if(isset($_GET['cerrar_sesion'])){
+        session_unset(); 
+
+        // destroy the session 
+        session_destroy(); 
+    }
+
     if(!isset($_SESSION['rol'])){
         header('location: ../index.php');
     }else{
