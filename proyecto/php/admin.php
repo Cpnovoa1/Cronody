@@ -39,9 +39,10 @@
 	</div>
     <div class="barralat close">
         <div class="logo-details">
-          <i class='bx bxl-c-plus-plus'></i>
-          <span class="logo_name">Cronody</span><i class='bx bx-menu' ></i>
-        </div>
+          <img src="../img/logo_loginmini.svg" alt="logo" class="menu">
+          <span class="logo_name">Cronody</span> 
+		  <i class='bx bx-menu menu2 logo_name'></i>
+        </div> 
         <ul class="nav-links">
           <li>
             <div class="iocn-link">
@@ -65,7 +66,7 @@
                 <i class='fas fa-users'></i></i>
                 <span class="link_name">Perfiles</span>
               </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
+              <i class='bx bxs-chevron-down arrow'></i>
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Perfiles</a></li>
@@ -172,7 +173,7 @@
           <li>
         <div class="profile-details">
           <div class="profile-content">
-            <img src="../img/logo-admin.svg" alt="profileImg">
+            <img src="../img/logo-admin.svg" alt="profileImg" class="menu3">
           </div>
           <div class="name-job">
             <div class="profile_name">Administrador</div>
@@ -185,57 +186,8 @@
     </ul>
       </div>
     <section class="home-section">
-      <div class="home-content"> <span class="text">Aqui vendría el iframe</span> </div>
+      <div class="home-content"> <span class="text">Aquí vendría el iframe</span> </div>
     </section>
-    <script>
-	  function mostrar(){
-          document.getElementById('cuadroconfirmar').style.display = 'flex';
-      }
-	  function ocultar()
-      {
-		  document.getElementById('cuadroconfirmar').style.display = 'none';
-	  }
-	function mostrarmenu(index)
-    {
-		
-	   document.getElementById('elemento'+index).style.display = 'block';
-    }
-    function quitarmenu(index)
-    {
-		document.getElementById('elemento'+index).style.display = 'none';
-	}
-		  
-      let arrow = document.querySelectorAll(".arrow");
-      for (var i = 0; i < arrow.length; i++) {
-        arrow[i].addEventListener("click", (e)=>{
-       let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-       arrowParent.classList.toggle("showMenu");
-        });
-      }
-      let barralat = document.querySelector(".barralat");
-      let barralatBtn = document.querySelector(".bx-menu");
-      console.log(barralatBtn);
-      barralatBtn.addEventListener("click", ()=>{
-        barralat.classList.toggle("close");
-      });
-		  
-      function cerrar_sesion(){
-		  document.getElementById("idcerrars").setAttribute("href","cerrarsesion.php")
-	  }
-		  
-	  function tag_cerrars(){
-		  var e = document.getElementById("idcerrarses");
-		  e.style.display = "flex";
-		  e.style.opacity = "1";
-	  }
-		  
-	  function tag_cerrars_out(){
-		   document.getElementById("idcerrarses").classList.add("cerrarses-out");
-	  }
-	  
-	  document.getElementById("idcerrars").addEventListener("click", cerrar_sesion());
-	  //document.getElementById("idsalir1").addEventListener("mouseover", tag_cerrars());
-	  //document.getElementById("idsalir1").addEventListener("mouseout", tag_cerrars_out());
-    </script>
+    <script src="../js/barra.js"></script>
 </body>
 </html>
