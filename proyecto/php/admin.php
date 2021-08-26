@@ -178,18 +178,16 @@
             <div class="profile_name">Administrador</div>
             <div class="job">Nombre Admin</div>
           </div>
-          <a onMouseOver="tag-cerrars()" onMouseOut="tag-cerrars-out()" onClick="mostrar()"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a>
+          <div onClick="mostrar()"><a id="idsalir1"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a></div>
 			<div class="cerrarses cerrarses-out" id="idcerrarses">Cerrar Sesion</div>
         </div>
-	         </li>
+	    </li>
     </ul>
       </div>
-      <section class="home-section">
-        <div class="home-content">
-          <span class="text">Aqui vendría el iframe</span>
-        </div>
-      </section>
-      <script>
+    <section class="home-section">
+      <div class="home-content"> <span class="text">Aqui vendría el iframe</span> </div>
+    </section>
+    <script>
 	  function mostrar(){
           document.getElementById('cuadroconfirmar').style.display = 'flex';
       }
@@ -226,18 +224,18 @@
 	  }
 		  
 	  function tag_cerrars(){
-		  alert("mouseover");
-		  document.getElementById("idcerrarses").classList.remove("cerrarses-out");
+		  var e = document.getElementById("idcerrarses");
+		  e.style.display = "flex";
+		  e.style.opacity = "1";
 	  }
 		  
 	  function tag_cerrars_out(){
-	  		alert("mouseout")
 		   document.getElementById("idcerrarses").classList.add("cerrarses-out");
 	  }
 	  
 	  document.getElementById("idcerrars").addEventListener("click", cerrar_sesion());
-	  document.getElementById("idsalir").addEventListener("mouseover", tag_cerrars());
-	  document.getElementById("idsalir").addEventListener("mouseout", tag_cerrars_out());
+	  //document.getElementById("idsalir1").addEventListener("mouseover", tag_cerrars());
+	  //document.getElementById("idsalir1").addEventListener("mouseout", tag_cerrars_out());
     </script>
 </body>
 </html>

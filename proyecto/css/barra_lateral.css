@@ -391,7 +391,7 @@
 
 .cerrarses {
     position: absolute;
-    display: flex;
+    display: none;
     width: 130px;
     bottom: 15px;
     left: 255px;
@@ -402,7 +402,7 @@
     padding: 5px 10px 5px 12px;
     font-size: 19px;
     border-radius: 6px;
-    opacity: 1;
+    opacity: 0;
 }
 
 .cerrarses-out {
