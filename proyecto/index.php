@@ -56,8 +56,10 @@
         if($row == true){
 			
             $rol = $row[1];
-            
+            $usu = $row[0];
+			
             $_SESSION['rol'] = $rol;
+			$_SESSION['user'] = $usu;
             switch($rol){
                 case 1:
                     header('location: php/admin.php');

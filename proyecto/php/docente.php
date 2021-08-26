@@ -27,5 +27,6 @@
 
 <body>
 	<h1>DOCENTE</h1>
+	<?php echo $_SESSION['user']; ?>
 </body>
 </html>
