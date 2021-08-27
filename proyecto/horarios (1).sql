@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 26-08-2021 a las 04:44:40
+-- Tiempo de generación: 27-08-2021 a las 02:49:28
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -124,7 +124,8 @@ CREATE TABLE `docente` (
 --
 
 INSERT INTO `docente` (`DOC_CODIGO`, `USU_CODIGO`, `DOC_NOMBRE`, `DOC_APELLIDO`, `DOC_TELEFONO`, `DOC_CEDULA`, `DOC_FNACIMIENTO`, `DOC_DIRECCION`, `DOC_CARGAHORARIA`, `DOC_ESTADO`) VALUES
-(1, 3, 'Pedro ', 'Gonzales', 998653251, '1725363625', '2015-05-05', 'Quito', 8, 1);
+(1, 3, 'Pedro ', 'Gonzales', 998653251, '1725363625', '2015-05-05', 'Quito', 8, 1),
+(2, 6, 'Juan', 'Padilla', 999999999, '1725666761', '2019-05-01', 'Av Amazonas', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -177,9 +178,11 @@ INSERT INTO `horarios_materias` (`HMA_CODIGO`, `HOR_CODIGO`, `MAT_CODIGO`, `DIA_
 
 CREATE TABLE `materias` (
   `MAT_CODIGO` int(2) NOT NULL,
-  `DOC_CODIGO` int(2) NOT NULL,
+  `DOC_CODIGO` int(2) DEFAULT NULL,
   `MAT_NOMBRE` varchar(35) NOT NULL,
   `MAT_AREA` varchar(30) NOT NULL,
+  `MAT_CARGAHORARIA` int(2) NOT NULL,
+  `NIV_CODIGO` int(2) NOT NULL,
   `MAT_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -187,8 +190,35 @@ CREATE TABLE `materias` (
 -- Volcado de datos para la tabla `materias`
 --
 
-INSERT INTO `materias` (`MAT_CODIGO`, `DOC_CODIGO`, `MAT_NOMBRE`, `MAT_AREA`, `MAT_ESTADO`) VALUES
-(1, 1, 'Matemática', 'Matemática', 1);
+INSERT INTO `materias` (`MAT_CODIGO`, `DOC_CODIGO`, `MAT_NOMBRE`, `MAT_AREA`, `MAT_CARGAHORARIA`, `NIV_CODIGO`, `MAT_ESTADO`) VALUES
+(1, 1, 'Matemática', 'Matemática', 8, 1, 1),
+(2, 2, 'Inglés', 'Lengua Extranjera', 3, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `nivel`
+--
+
+CREATE TABLE `nivel` (
+  `NIV_CODIGO` int(2) NOT NULL,
+  `NIV_NOMBRE` varchar(20) NOT NULL,
+  `NIV_SUBNIVEL` varchar(20) NOT NULL,
+  `NIV_ESTADO` int(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `nivel`
+--
+
+INSERT INTO `nivel` (`NIV_CODIGO`, `NIV_NOMBRE`, `NIV_SUBNIVEL`, `NIV_ESTADO`) VALUES
+(1, 'BASICA', 'ELEMENTAL', 1),
+(2, 'BASICA', 'MEDIA', 1),
+(3, 'BASICA', 'SUPERIOR', 1),
+(4, 'BACHILLERATO', 'PRIMERO', 1),
+(5, 'BACHILLERATO', 'SEGUNDO', 1),
+(6, 'BACHILLERATO', 'TERCERO', 1),
+(7, 'BASICA', 'INICIAL', 0);
 
 -- --------------------------------------------------------
 
@@ -198,11 +228,23 @@ INSERT INTO `materias` (`MAT_CODIGO`, `DOC_CODIGO`, `MAT_NOMBRE`, `MAT_AREA`, `M
 
 CREATE TABLE `paralelo` (
   `AUL_CODIGO` int(2) NOT NULL,
-  `HOR_CODIGO` int(2) NOT NULL,
+  `HOR_CODIGO` int(2) DEFAULT NULL,
   `AUL_NOMBRE` varchar(30) NOT NULL,
   `AUL_CURSO` varchar(20) NOT NULL,
+  `NIV_CODIGO` int(2) DEFAULT NULL,
   `AUL_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `paralelo`
+--
+
+INSERT INTO `paralelo` (`AUL_CODIGO`, `HOR_CODIGO`, `AUL_NOMBRE`, `AUL_CURSO`, `NIV_CODIGO`, `AUL_ESTADO`) VALUES
+(1, 1, 'A', '2do Básica', 1, 1),
+(2, NULL, 'B', '2do Básica', 1, 1),
+(3, NULL, 'C', '2do Básica', 1, 1),
+(4, NULL, 'A', '3ro Básica', 1, 1),
+(5, NULL, 'B', '3ro Básica', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -274,7 +316,8 @@ INSERT INTO `usuario` (`USU_CODIGO`, `ROL_CODIGO`, `USU_USER`, `USU_CLAVE`, `USU
 (2, 2, 'supervisor', '1234', 1),
 (3, 3, 'docente', '1234', 1),
 (4, 4, 'alumno', '1234', 1),
-(5, 1, 'admin2', '123456', 1);
+(5, 1, 'admin2', '123456', 1),
+(6, 3, 'docente2', '1234', 1);
 
 --
 -- Índices para tablas volcadas
@@ -336,14 +379,22 @@ ALTER TABLE `horarios_materias`
 --
 ALTER TABLE `materias`
   ADD PRIMARY KEY (`MAT_CODIGO`),
-  ADD KEY `FK_IMPARTE` (`DOC_CODIGO`);
+  ADD KEY `FK_IMPARTE` (`DOC_CODIGO`),
+  ADD KEY `NIV_CODIGO` (`NIV_CODIGO`);
+
+--
+-- Indices de la tabla `nivel`
+--
+ALTER TABLE `nivel`
+  ADD PRIMARY KEY (`NIV_CODIGO`);
 
 --
 -- Indices de la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
   ADD PRIMARY KEY (`AUL_CODIGO`),
-  ADD KEY `FK_PERTENECE` (`HOR_CODIGO`);
+  ADD KEY `FK_PERTENECE` (`HOR_CODIGO`),
+  ADD KEY `NIV_CODIGO` (`NIV_CODIGO`);
 
 --
 -- Indices de la tabla `roles`
@@ -397,7 +448,7 @@ ALTER TABLE `dias`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `DOC_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `DOC_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `horarios`
@@ -415,13 +466,19 @@ ALTER TABLE `horarios_materias`
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `MAT_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `MAT_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `nivel`
+--
+ALTER TABLE `nivel`
+  MODIFY `NIV_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
-  MODIFY `AUL_CODIGO` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `AUL_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -439,7 +496,7 @@ ALTER TABLE `supervisor`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `USU_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `USU_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -488,13 +545,15 @@ ALTER TABLE `horarios_materias`
 -- Filtros para la tabla `materias`
 --
 ALTER TABLE `materias`
-  ADD CONSTRAINT `FK_IMPARTE` FOREIGN KEY (`DOC_CODIGO`) REFERENCES `docente` (`DOC_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `FK_IMPARTE` FOREIGN KEY (`DOC_CODIGO`) REFERENCES `docente` (`DOC_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `materias_ibfk_1` FOREIGN KEY (`NIV_CODIGO`) REFERENCES `nivel` (`NIV_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
-  ADD CONSTRAINT `FK_PERTENECE` FOREIGN KEY (`HOR_CODIGO`) REFERENCES `horarios` (`HOR_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `FK_PERTENECE` FOREIGN KEY (`HOR_CODIGO`) REFERENCES `horarios` (`HOR_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `paralelo_ibfk_1` FOREIGN KEY (`NIV_CODIGO`) REFERENCES `nivel` (`NIV_CODIGO`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
 -- Filtros para la tabla `supervisor`
