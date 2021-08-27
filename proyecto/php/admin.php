@@ -94,7 +94,7 @@
 				  <li><a href="form_alumno.php" target="iframe_a">Agregar</a></li>
 				  <li><a href="#">Editar Datos</a></li>
 				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="#">Mostrar Datos</a></li>
+				  <li><a href="mostrar_docente.php" target="iframe_a">Mostrar Datos</a></li>
 				</ul>
 			  </li>
 			  <li><a href="#" onmouseover="mostrarmenu('4')" onmouseout="quitarmenu('4')">Alumno</a>
