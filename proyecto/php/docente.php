@@ -77,7 +77,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <div class="home-content"> <span class="text">Aquí vendría el iframe</span> </div>
+      <iframe src="iframeadmin.php" name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>
