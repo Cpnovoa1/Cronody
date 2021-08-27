@@ -31,7 +31,7 @@
 				<div class="info-texto">Está a punto de cerrar sesión! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿Está seguro?</div>
 				<div class="botones" align="center">
 					<a id="idcerrars"><button type="button" value="Aceptar">Aceptar</button></a>
-					 &nbsp;&nbsp;&nbsp;&nbsp; 
+					 &nbsp;&nbsp;&nbsp;&nbsp;
 					<button type="button" onClick="ocultar()">Cancelar</button>
 				</div>
 			</div>
@@ -40,9 +40,9 @@
     <div class="barralat close">
         <div class="logo-details">
           <img src="../img/logo_loginmini.svg" alt="logo" class="menu">
-          <span class="logo_name">Cronody</span> 
+          <span class="logo_name">Cronody</span>
 		  <i class='bx bx-menu menu2 logo_name'></i>
-        </div> 
+        </div>
         <ul class="nav-links">
           <li>
             <div class="iocn-link">
@@ -73,9 +73,9 @@
               <li><a href="#" onmouseover="mostrarmenu('1')" onmouseout="quitarmenu('1')">Administrador</a>
 				  <ul class="sub-menu" id="elemento1"  onmouseover="mostrarmenu('1')" onmouseout="quitarmenu('1')" style="display: none">
 				  <li><a href="#">Agregar</a></li>
-				  
+
 				  <li><a href="#">Editar Datos</a></li>
-				  
+
 				  <li><a href="#">Eliminar Datos</a></li>
 				  <li><a href="#">Mostrar Datos</a></li>
 				</ul>
@@ -91,7 +91,7 @@
 			  </li>
               <li><a href="#" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')">Docente</a>
 				<ul class="sub-menu" id="elemento3" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
+				  <li><a href="form_alumno.php" target="iframe_a">Agregar</a></li>
 				  <li><a href="#">Editar Datos</a></li>
 				  <li><a href="#">Eliminar Datos</a></li>
 				  <li><a href="#">Mostrar Datos</a></li>
@@ -121,9 +121,9 @@
               <li><a href="#" onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')">Materia</a>
 				  <ul class="sub-menu" id="elemento5"  onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')" style="display: none">
 				  <li><a href="#">Agregar</a></li>
-				  
+
 				  <li><a href="#">Editar </a></li>
-				  
+
 				  <li><a href="#">Eliminar </a></li>
 				  <li><a href="#">Mostrar </a></li>
 				</ul>
@@ -137,13 +137,13 @@
 				  <li><a href="#">Mostrar Datos</a></li>
 				</ul>
 			  </li>
-              
-			  
+
+
             </ul>
           </li>
 		  <!-- cursofinal-->
-          
-          
+
+
           <li>
             <a href="#">
               <i class='fas fa-book' ></i>
@@ -164,12 +164,12 @@
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Auditoria</a></li>
               <li><a href="#">Mostrar Acciones</a></li>
-              
+
             </ul>
           </li>
-          
-          
-          
+
+
+
           <li>
         <div class="profile-details">
           <div class="profile-content">
