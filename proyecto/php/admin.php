@@ -77,7 +77,7 @@
 				  <li><a href="#">Editar Datos</a></li>
 
 				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="#">Mostrar Datos</a></li>
+				  <li><a href="mostrar_administrador.php" target="iframe_a">Mostrar Datos</a></li>
 				</ul>
 			  </li>
               <li><a href="#" onmouseover="mostrarmenu('2')" onmouseout="quitarmenu('2')">Supervisor</a>
@@ -86,7 +86,7 @@
 				  <li><a href="#">Agregar</a></li>
 				  <li><a href="#">Editar Datos</a></li>
 				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="#">Mostrar Datos</a></li>
+				  <li><a href="mostrar_supervisores.php" target="iframe_a">Mostrar Datos</a></li>
 				</ul>
 			  </li>
               <li><a href="#" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')">Docente</a>
@@ -102,7 +102,7 @@
 				  <li><a href="#">Agregar</a></li>
 				  <li><a href="#">Editar Datos</a></li>
 				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="#">Mostrar Datos</a></li>
+				  <li><a href="mostrar_alumnos.php" target="iframe_a">Mostrar Datos</a></li>
 				</ul>
 			  </li>
             </ul>
