@@ -134,7 +134,7 @@
 				  <li><a href="#">Agregar</a></li>
 				  <li><a href="#">Editar Datos</a></li>
 				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="#">Mostrar Datos</a></li>
+				  <li><a href="mostrar_aulas.php" target="iframe_a">Mostrar Datos</a></li>
 				</ul>
 			  </li>
 
