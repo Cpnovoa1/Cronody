@@ -125,7 +125,7 @@
 				  <li><a href="#">Editar </a></li>
 
 				  <li><a href="#">Eliminar </a></li>
-				  <li><a href="#">Mostrar </a></li>
+				  <li><a href="mostrar_materia.php" target="iframe_a">Mostrar </a></li>
 				</ul>
 			  </li>
               <li><a href="#" onmouseover="mostrarmenu('6')" onmouseout="quitarmenu('6')">Aulas</a>

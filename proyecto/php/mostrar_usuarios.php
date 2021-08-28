@@ -19,7 +19,7 @@
 
 	<div class="filtro">
 		<form id="form1" name="form1" method="post" action="#">
-			<label for="select">Mostar usuarios:</label>
+			<label for="select">Filtro usuarios:</label>
 			<select name="estado" id="select">
 				<option value="Todos">Todos</option>
 				<option value="Activos">Activos</option>
