@@ -57,7 +57,7 @@
               <li><a href="#">Crear usuarios</a></li>
               <li><a href="#">Modificar Usuarios</a></li>
               <li><a href="#">Eliminar usuarios</a></li>
-			  <li><a href="#">Mostrar usuarios</a></li>
+			  <li><a href="mostrar_usuarios.php" target="iframe_a">Mostrar usuarios</a></li>
             </ul>
           </li>
           <li>

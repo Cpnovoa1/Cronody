@@ -1,0 +1,33 @@
+body{
+	font-family: Arial;
+	padding: 0px 20px;
+}
+h1{
+	text-align: center;
+}
+.filtro{
+	margin-bottom:20px;
+}
+
+table{
+	background-color: white;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #143878;
+	border-bottom: solid 5px #0E2B5F;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+
