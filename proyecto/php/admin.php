@@ -186,7 +186,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="#" name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
+      <iframe name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>
