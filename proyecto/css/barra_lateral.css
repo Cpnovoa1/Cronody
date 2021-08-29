@@ -6,7 +6,7 @@
 	--base: rgba(20,56,120,1.00);
 	--sec: rgba(204,180,11,1.00);
 	--activo: rgba(27,78,168,1.00);
-	--selec: rgba(21,60,129,1.00);
+	--selec: rgba(24,67,144,1.00);
 	--texto: rgba(219,219,219,1.00);
 	--azul-claro: rgba(19,92,175,1.00);
 	--azul: rgba(24,63,155,1.00);
@@ -31,6 +31,7 @@
   width: 260px;
   background: var(--base);
   z-index: 99;
+  box-shadow: 3px 0px 8px -6px rgba(10,31,68,0.70);
   transition: all 0.5s ease;
 }
 .barralat.close{
@@ -79,7 +80,7 @@
   transition: all 0.4s ease;
 }
 .barralat .nav-links li:hover{
-  background: var(--base);
+  background: var(--selec);
 }
 
 .barralat .nav-links li .iocn-link{
@@ -124,7 +125,7 @@
 .barralat .nav-links li .sub-menu{
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
-  background: var(--base);
+  background: var(--selec);
   display: none;
   transition: all 0.2s ease;
 }
@@ -133,8 +134,17 @@
 .barralat .nav-links li .sub-menu li .sub-menu{
   padding: 6px 6px 14px 25px;
   margin-top: -10px;
-  background: var(--base);
+  background: var(--selec);
   display: none;
+  transition: all 0.2s ease;
+}
+
+.barralat.close .nav-links li .sub-menu li .sub-menu{
+  padding: 6px 6px 14px 25px;
+  margin-top: -10px;
+  background: var(--selec);
+  display: none;
+  box-shadow: 0px 0px 6px -3px rgba(10,31,68,0.70);
   transition: all 0.2s ease;
 }
 
@@ -167,6 +177,7 @@
   transition: all 0.3s ease;
 }
 .barralat .nav-links li .sub-menu a:hover{
+  transition: all 0.2s ease;
   opacity: 1;
 }
 .barralat.close .nav-links li .sub-menu{
@@ -211,7 +222,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--base);
+  background: var(--selec);
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -231,7 +242,7 @@
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: var(--base);
+  background: var(--selec);
   transition: all 0.5s ease;
 }
 
@@ -272,6 +283,7 @@
   background: var(--texto);
   height: 100vh;
   left: 260px;
+  z-index: 1;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
 }
@@ -433,6 +445,10 @@
 
 .barralat .logo-details .menu2 {
 	margin: 0 0 0 22px;
+}
+
+iframe {
+	z-index: -1;
 }
 
 @media (max-width: 420px) {

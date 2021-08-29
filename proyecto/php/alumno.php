@@ -2,13 +2,6 @@
 
     session_start();
 
-	if(isset($_GET['cerrar_sesion'])){
-        session_unset(); 
-
-        // destroy the session 
-        session_destroy(); 
-    }
-
     if(!isset($_SESSION['rol'])){
         header('location: ../index.php');
     }else{
@@ -16,6 +9,8 @@
             header('location: ../index.php');
         }
     }
+
+	include('obtener_usuario.php');
 
 ?>
 <!DOCTYPE html>
@@ -68,7 +63,7 @@
           </div>
           <div class="name-job">
             <div class="profile_name">Alumno</div>
-            <div class="job">Nombre Alumno</div>
+            <div class="job"><?php echo $cadena; ?></div>
           </div>
           <div onClick="mostrar()"><a id="idsalir1"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a></div>
 			<div class="cerrarses cerrarses-out" id="idcerrarses">Cerrar Sesion</div>
@@ -77,7 +72,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="#" name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
+      <iframe src="../html/alumno-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>

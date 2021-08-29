@@ -10,6 +10,7 @@
         }
     }
 
+	include('obtener_usuario.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -167,17 +168,14 @@
 
             </ul>
           </li>
-
-
-
           <li>
         <div class="profile-details">
           <div class="profile-content">
             <img src="../img/logo-admin.svg" alt="profileImg" class="menu3">
           </div>
           <div class="name-job">
-            <div class="profile_name">Administrador</div>
-            <div class="job">Nombre Admin</div>
+            <div class="profile_name" id="idrol">Administrador</div>
+            <div class="job" id="idnombre"><?php echo $cadena; ?></div>
           </div>
           <div onClick="mostrar()"><a id="idsalir1"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a></div>
 			<div class="cerrarses cerrarses-out" id="idcerrarses">Cerrar Sesion</div>
@@ -186,8 +184,9 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
+      <iframe src="../html/admin-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
-    <script src="../js/barra.js"></script>
+<script src="../js/barra.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </body>
 </html>

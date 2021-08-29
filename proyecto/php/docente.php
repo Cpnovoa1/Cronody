@@ -17,6 +17,8 @@
         }
     }
 
+	include('obtener_usuario.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +70,7 @@
           </div>
           <div class="name-job">
             <div class="profile_name">Docente</div>
-            <div class="job">Nombre Docente</div>
+            <div class="job"><?php echo $cadena; ?></div>
           </div>
           <div onClick="mostrar()"><a id="idsalir1"><i class='fas fa-sign-out-alt fa-rotate-180 fa-10x'></i></a></div>
 			<div class="cerrarses cerrarses-out" id="idcerrarses">Cerrar Sesion</div>
@@ -77,7 +79,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="#" name="iframe_a" height="100%" width="100%" title="Iframe Example"></iframe>
+      <iframe src="../html/docente-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>
