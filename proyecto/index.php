@@ -48,12 +48,12 @@
         $password = $_POST['password'];
 			
         $db = new Database();
-        $query = $db->connect()->prepare("SELECT * FROM usuario WHERE USU_USER = :username AND USU_CLAVE = :password ");
-        $query->execute(['username' => $username, 'password' => $password]);
+        $query = $db->connect()->prepare("SELECT * FROM usuario WHERE USU_USER = :username");
+        $query->execute(['username' => $username]);
 
         $row = $query->fetch(PDO::FETCH_NUM);
         $validar = true;
-        if($row == true){
+        if(($row == true) && (password_verify($password,$row[3]))){
 			
             $rol = $row[1];
             $usu = $row[0];
