@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-08-2021 a las 02:49:28
+-- Tiempo de generación: 02-09-2021 a las 21:16:29
 -- Versión del servidor: 8.0.17
 -- Versión de PHP: 7.3.10
 
@@ -40,6 +40,13 @@ CREATE TABLE `administrador` (
   `ADM_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Entidad que controla los registros y modificaciones del sism';
 
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`ADM_CODIGO`, `USU_CODIGO`, `ADM_NOMBRE`, `ADM_APELLIDO`, `ADM_TELEFONO`, `ADM_CEDULA`, `ADM_FNACIMIENTO`, `ADM_DIRECCION`, `ADM_ESTADO`) VALUES
+(1, 1, 'Jose', 'Ramirez', 2236554, '1725698563', '1995-07-07', 'Quito', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +66,13 @@ CREATE TABLE `alumno` (
   `ALU_DIRECCION` varchar(50) NOT NULL,
   `ALU_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Entidad que representa a los estudiantes de un centro educat';
+
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`ALU_CODIGO`, `AUL_CODIGO`, `USU_CODIGO`, `ALU_NOMBRE`, `ALU_APELLIDO`, `ALU_EMAIL`, `ALU_TELEFONO`, `ALU_CEDULA`, `ALU_FNACIMIENTO`, `ALU_DIRECCION`, `ALU_ESTADO`) VALUES
+(1, 8, 4, 'Juan', 'Lopez', 'julopez1@gmail.com', 993656965, '1785596695', '2018-03-22', 'Loja', 1);
 
 -- --------------------------------------------------------
 
@@ -115,7 +129,7 @@ CREATE TABLE `docente` (
   `DOC_CEDULA` varchar(10) NOT NULL,
   `DOC_FNACIMIENTO` date NOT NULL,
   `DOC_DIRECCION` varchar(50) NOT NULL,
-  `DOC_CARGAHORARIA` int(2) NOT NULL,
+  `DOC_CARGAHORARIA` int(2) DEFAULT NULL,
   `DOC_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Entidad que representa a los docentes del centro educativo';
 
@@ -125,7 +139,8 @@ CREATE TABLE `docente` (
 
 INSERT INTO `docente` (`DOC_CODIGO`, `USU_CODIGO`, `DOC_NOMBRE`, `DOC_APELLIDO`, `DOC_TELEFONO`, `DOC_CEDULA`, `DOC_FNACIMIENTO`, `DOC_DIRECCION`, `DOC_CARGAHORARIA`, `DOC_ESTADO`) VALUES
 (1, 3, 'Pedro ', 'Gonzales', 998653251, '1725363625', '2015-05-05', 'Quito', 8, 1),
-(2, 6, 'Juan', 'Padilla', 999999999, '1725666761', '2019-05-01', 'Av Amazonas', 8, 1);
+(2, 6, 'Juan', 'Padilla', 999999999, '1725666761', '2012-01-17', 'Av Amazonas', 8, 1),
+(3, 7, 'Josefina', 'Alcada', 963252453, '1725469632', '2019-08-15', 'Cuenca', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -192,7 +207,15 @@ CREATE TABLE `materias` (
 
 INSERT INTO `materias` (`MAT_CODIGO`, `DOC_CODIGO`, `MAT_NOMBRE`, `MAT_AREA`, `MAT_CARGAHORARIA`, `NIV_CODIGO`, `MAT_ESTADO`) VALUES
 (1, 1, 'Matemática', 'Matemática', 8, 1, 1),
-(2, 2, 'Inglés', 'Lengua Extranjera', 3, 1, 1);
+(2, 2, 'Inglés', 'Lengua Extranjera', 3, 1, 0),
+(3, 2, 'Ciencias Naturales', 'Ciencias Naturales', 5, 2, 1),
+(4, 1, 'Matemática', 'Matemática', 7, 2, 1),
+(5, 2, 'Física', 'Ciencias Naturales', 3, 4, 0),
+(6, 1, 'Química', 'Ciencias Naturales', 2, 4, 1),
+(7, 3, 'Inglés', 'Lengua Extranjera', 3, 1, 0),
+(14, 1, 'Física', 'Ciencias Naturales', 3, 4, 0),
+(15, 2, 'Matemática', 'Matemática', 7, 2, 1),
+(16, 3, 'Ciencias Naturales', 'Ciencias Naturales', 5, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -218,7 +241,7 @@ INSERT INTO `nivel` (`NIV_CODIGO`, `NIV_NOMBRE`, `NIV_SUBNIVEL`, `NIV_ESTADO`) V
 (4, 'BACHILLERATO', 'PRIMERO', 1),
 (5, 'BACHILLERATO', 'SEGUNDO', 1),
 (6, 'BACHILLERATO', 'TERCERO', 1),
-(7, 'BASICA', 'INICIAL', 0);
+(7, 'PREPARATORIA', 'INICIAL', 1);
 
 -- --------------------------------------------------------
 
@@ -244,7 +267,10 @@ INSERT INTO `paralelo` (`AUL_CODIGO`, `HOR_CODIGO`, `AUL_NOMBRE`, `AUL_CURSO`, `
 (2, NULL, 'B', '2do Básica', 1, 1),
 (3, NULL, 'C', '2do Básica', 1, 1),
 (4, NULL, 'A', '3ro Básica', 1, 1),
-(5, NULL, 'B', '3ro Básica', 1, 1);
+(5, NULL, 'B', '3ro Básica', 1, 1),
+(6, NULL, 'A', '5to Básica', 2, 1),
+(7, NULL, 'B', '5to Básica', 2, 1),
+(8, NULL, 'A', '1ro BGU', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +317,7 @@ CREATE TABLE `supervisor` (
 --
 
 INSERT INTO `supervisor` (`SUP_CODIGO`, `USU_CODIGO`, `SUP_NOMBRE`, `SUP_APELLIDO`, `SUP_TELEFONO`, `SUP_CEDULA`, `SUP_FNACIMIENTO`, `SUP_DIRECCION`, `SUP_ESTADO`) VALUES
-(1, 2, 'Jose', 'Marin', 996325148, '1725793965', '2017-12-07', 'Guayakill', 1);
+(1, 2, 'Jose', 'Marin', 996325149, '1725793965', '2017-12-07', 'Guayaquil', 1);
 
 -- --------------------------------------------------------
 
@@ -303,7 +329,7 @@ CREATE TABLE `usuario` (
   `USU_CODIGO` int(2) NOT NULL,
   `ROL_CODIGO` int(2) NOT NULL,
   `USU_USER` char(35) NOT NULL,
-  `USU_CLAVE` varchar(35) NOT NULL,
+  `USU_CLAVE` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `USU_ESTADO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -312,12 +338,13 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`USU_CODIGO`, `ROL_CODIGO`, `USU_USER`, `USU_CLAVE`, `USU_ESTADO`) VALUES
-(1, 1, 'admin', 'admin', 1),
-(2, 2, 'supervisor', '1234', 1),
-(3, 3, 'docente', '1234', 1),
-(4, 4, 'alumno', '1234', 1),
-(5, 1, 'admin2', '123456', 1),
-(6, 3, 'docente2', '1234', 1);
+(1, 1, 'admin', '$2y$10$9Qu2FBaX/46ZTAPSqALOUOsURaV.i1YV.Fa9V2u2HdBXXrWNiGB3O', 1),
+(2, 2, 'supervisor', '$2y$10$3Cx/7jFxccFVZpmpJf75wurDgFMzDszRb/SqJQet4uiAShtJl/a/u', 1),
+(3, 3, 'docente', '$2y$10$KIU8vAlXvs.VTD.UgmtxQe7Gv2UX7Ph8RJpDzKBvYJnNxr2hLWwoa', 1),
+(4, 4, 'alumno', '2y$10$urECY1ZN9ls21S0IWsUrtueyYr6tudnejZDIh3QjofO7HUGe9pE3i', 1),
+(5, 1, 'admin2', '$2y$10$gP3zWVT1ynDhh/ahF54nCuzw6daomJeHOTz9zzpb2RGcfWG21.BXu', 1),
+(6, 3, 'docente3', '$2y$10$TDaAgUA2Y2x1WaNrt2M.6egf.kFsla8NiAoLYxiXV5mjOZ2szZOFW', 1),
+(7, 3, 'docente2', '$2y$10$j9pUnviOBF0bLK.4paxpoeTU22HFK.RGEhqzxVOwqwq3r4NVlkxTq', 1);
 
 --
 -- Índices para tablas volcadas
@@ -424,13 +451,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `ADM_CODIGO` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `ADM_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `ALU_CODIGO` int(2) NOT NULL AUTO_INCREMENT;
+  MODIFY `ALU_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `auditoria`
@@ -448,7 +475,7 @@ ALTER TABLE `dias`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `DOC_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `DOC_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `horarios`
@@ -466,7 +493,7 @@ ALTER TABLE `horarios_materias`
 -- AUTO_INCREMENT de la tabla `materias`
 --
 ALTER TABLE `materias`
-  MODIFY `MAT_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MAT_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `nivel`
@@ -478,7 +505,7 @@ ALTER TABLE `nivel`
 -- AUTO_INCREMENT de la tabla `paralelo`
 --
 ALTER TABLE `paralelo`
-  MODIFY `AUL_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `AUL_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -496,7 +523,7 @@ ALTER TABLE `supervisor`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `USU_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `USU_CODIGO` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
