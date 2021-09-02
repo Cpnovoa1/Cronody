@@ -45,20 +45,24 @@
 		  <i class='bx bx-menu menu2 logo_name'></i>
         </div>
         <ul class="nav-links">
+		  <li>
+            <a href="../html/admin-bienvenido.html" target="iframe_a">
+              <i class='fas fa-home' ></i>
+              <span class="link_name">Inicio</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="../html/admin-bienvenido.html" target="iframe_a">Inicio</a></li>
+            </ul>
+          </li>
           <li>
             <div class="iocn-link">
-              <a href="#">
+              <a href="editar_usuarios.php" target="iframe_a">
                 <i class='fas fa-user' ></i>
                 <span class="link_name">Usuarios</span>
               </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
             </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Usuarios</a></li>
-              <li><a href="../html/forms/index.html" target="iframe_a">Crear usuarios</a></li>
-              <li><a href="#">Modificar Usuarios</a></li>
-              <li><a href="#">Eliminar usuarios</a></li>
-			  <li><a href="mostrar_usuarios.php" target="iframe_a">Mostrar usuarios</a></li>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="editar_usuarios.php" target="iframe_a">Usuarios</a></li>
             </ul>
           </li>
           <li>
@@ -71,40 +75,13 @@
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Perfiles</a></li>
-              <li><a href="#" onmouseover="mostrarmenu('1')" onmouseout="quitarmenu('1')">Administrador</a>
-				  <ul class="sub-menu" id="elemento1"  onmouseover="mostrarmenu('1')" onmouseout="quitarmenu('1')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
-
-				  <li><a href="#">Editar Datos</a></li>
-
-				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="mostrar_administrador.php" target="iframe_a">Mostrar Datos</a></li>
-				</ul>
+              <li><a href="editar_admin.php" target="iframe_a" onmouseover="mostrarmenu('1')" onmouseout="quitarmenu('1')">Administrador</a>
 			  </li>
-              <li><a href="#" onmouseover="mostrarmenu('2')" onmouseout="quitarmenu('2')">Supervisor</a>
-				 <!-- OJO ACA-->
-				<ul class="sub-menu" id="elemento2"  onmouseover="mostrarmenu('2')" onmouseout="quitarmenu('2')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
-				  <li><a href="#">Editar Datos</a></li>
-				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="mostrar_supervisores.php" target="iframe_a">Mostrar Datos</a></li>
-				</ul>
+              <li><a href="editar_supervisor.php" target="iframe_a" onmouseover="mostrarmenu('2')" onmouseout="quitarmenu('2')">Supervisor</a>
 			  </li>
-              <li><a href="#" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')">Docente</a>
-				<ul class="sub-menu" id="elemento3" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')" style="display: none">
-				  <li><a href="form_alumno.php" target="iframe_a">Agregar</a></li>
-				  <li><a href="#">Editar Datos</a></li>
-				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="mostrar_docente.php" target="iframe_a">Mostrar Datos</a></li>
-				</ul>
+              <li><a href="editar_docente.php" target="iframe_a" onmouseover="mostrarmenu('3')" onmouseout="quitarmenu('3')">Docente</a>
 			  </li>
-			  <li><a href="#" onmouseover="mostrarmenu('4')" onmouseout="quitarmenu('4')">Alumno</a>
-				<ul class="sub-menu" id="elemento4" onmouseover="mostrarmenu('4')" onmouseout="quitarmenu('4')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
-				  <li><a href="#">Editar Datos</a></li>
-				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="mostrar_alumnos.php" target="iframe_a">Mostrar Datos</a></li>
-				</ul>
+			  <li><a href="editar_alumno.php" target="iframe_a" onmouseover="mostrarmenu('4')" onmouseout="quitarmenu('4')">Alumno</a>
 			  </li>
             </ul>
           </li>
@@ -119,24 +96,9 @@
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Cursos</a></li>
-              <li><a href="#" onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')">Materia</a>
-				  <ul class="sub-menu" id="elemento5"  onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
-
-				  <li><a href="#">Editar </a></li>
-
-				  <li><a href="#">Eliminar </a></li>
-				  <li><a href="mostrar_materia.php" target="iframe_a">Mostrar </a></li>
-				</ul>
+              <li><a href="editar_materia.php" target="iframe_a" onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')">Materia</a>
 			  </li>
-              <li><a href="#" onmouseover="mostrarmenu('6')" onmouseout="quitarmenu('6')">Aulas</a>
-				 <!-- OJO ACA-->
-				<ul class="sub-menu" id="elemento6"  onmouseover="mostrarmenu('6')" onmouseout="quitarmenu('6')" style="display: none">
-				  <li><a href="#">Agregar</a></li>
-				  <li><a href="#">Editar Datos</a></li>
-				  <li><a href="#">Eliminar Datos</a></li>
-				  <li><a href="mostrar_aulas.php" target="iframe_a">Mostrar Datos</a></li>
-				</ul>
+              <li><a href="editar_aulas.php" target="iframe_a" onmouseover="mostrarmenu('6')" onmouseout="quitarmenu('6')">Aulas</a>				
 			  </li>
 
 

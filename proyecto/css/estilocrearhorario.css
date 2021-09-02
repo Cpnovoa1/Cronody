@@ -48,6 +48,7 @@ body {
 	font-size: 30px;
 	font-weight: 400;
 	padding: 10px 0;
+	box-shadow: inset 6px 0px 9px -8px rgba(10,31,68,0.70);
 }
 
 .cuerpo {
