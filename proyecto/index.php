@@ -58,6 +58,11 @@
             $rol = $row[1];
             $usu = $row[0];
 			
+			$myIP=getRealIP();
+			
+			$auditoria =$db->connect()->prepare("INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($rol,'$myIP','ENTRO',curTime(),CURDATE())");
+			$auditoria->execute();
+			
             $_SESSION['rol'] = $rol;
 			$_SESSION['user'] = $usu;
             switch($rol){
@@ -86,6 +91,19 @@
         
 
     }
+	
+	
+		
+	function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+	return $_SERVER['REMOTE_ADDR'];
+	}	
 	
 ?>
 <body>

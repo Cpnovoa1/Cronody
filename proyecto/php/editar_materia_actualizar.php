@@ -11,6 +11,7 @@ $horas = $_POST['horas'];
 $r=true;
 $repetidos = "Select * From materias Where MAT_CODIGO<>'$ide'";
 $result = mysqli_query( $conn, $repetidos );
+$myIP=getRealIP();
 while($row = mysqli_fetch_array($result)){
 	if($materia == $row['MAT_NOMBRE'] && $area == $row['MAT_AREA'] && $nivel == $row['NIV_CODIGO'] && $doc == $row['DOC_CODIGO']){
 		echo '<script>alert("El registro ingresado ya existe!");</script>';
@@ -26,11 +27,24 @@ if($result2){
 			alert("Los datos se han actualizado correctamente");
 			window.location="editar_materia.php";
 		</script>';
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Actualizo Materia',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al guardar");
 			window.history.go(-1);
 		</script>';
 }
+
+function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+	return $_SERVER['REMOTE_ADDR'];
+}	
+
 ?>
 	

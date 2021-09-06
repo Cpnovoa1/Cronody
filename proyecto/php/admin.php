@@ -46,12 +46,12 @@
         </div>
         <ul class="nav-links">
 		  <li>
-            <a href="../html/admin-bienvenido.html" target="iframe_a">
+            <a href="admin_bienvenidoprincipal.php" target="iframe_a">
               <i class='fas fa-home' ></i>
               <span class="link_name">Inicio</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="../html/admin-bienvenido.html" target="iframe_a">Inicio</a></li>
+              <li><a class="link_name" href="admin_bienvenidoprincipal.php" target="iframe_a">Inicio</a></li>
             </ul>
           </li>
           <li>
@@ -88,37 +88,29 @@
 		  <!-- Cursos-->
 			<li>
             <div class="iocn-link">
-              <a href="#">
-                <i class='fas fa-school' ></i>
-                <span class="link_name">Cursos</span>
+              <a href="editar_materia.php" target="iframe_a">
+                <i class="fas fa-book-open"></i>
+                <span class="link_name">Materias</span>
               </a>
-              <i class='bx bxs-chevron-down arrow' ></i>
             </div>
-            <ul class="sub-menu">
-              <li><a class="link_name" href="#">Cursos</a></li>
-              <li><a href="editar_materia.php" target="iframe_a" onmouseover="mostrarmenu('5')" onmouseout="quitarmenu('5')">Materia</a>
-			  </li>
-              <li><a href="editar_aulas.php" target="iframe_a" onmouseover="mostrarmenu('6')" onmouseout="quitarmenu('6')">Aulas</a>				
-			  </li>
-
-
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="editar_materia.php" target="iframe_a">Materias</a></li>
             </ul>
           </li>
-		  <!-- cursofinal-->
-
-
-          <li>
-            <a href="#">
-              <i class='fas fa-book' ></i>
-              <span class="link_name">Registros</span>
-            </a>
+	       <li>
+            <div class="iocn-link">
+              <a href="editar_aulas.php" target="iframe_a">
+                <i class="fas fa-chalkboard"></i>
+                <span class="link_name">Aulas</span>
+              </a>
+            </div>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Registros</a></li>
+              <li><a class="link_name" href="editar_aulas.php" target="iframe_a">Aulas</a></li>
             </ul>
           </li>
           <li>
             <div class="iocn-link">
-              <a href="#">
+              <a href="mostrar_auditorias.php" target="iframe_a">
                 <i class='fas fa-address-book' ></i>
                 <span class="link_name">Auditoria</span>
               </a>
@@ -126,7 +118,7 @@
             </div>
             <ul class="sub-menu">
               <li><a class="link_name" href="#">Auditoria</a></li>
-              <li><a href="#">Mostrar Acciones</a></li>
+              <li><a href="mostrar_auditorias.php"  target="iframe_a">Mostrar Acciones</a></li>
 
             </ul>
           </li>
@@ -146,7 +138,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="../html/admin-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
+      <iframe src="../php/admin_bienvenidoprincipal.php" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
 <script src="../js/barra.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

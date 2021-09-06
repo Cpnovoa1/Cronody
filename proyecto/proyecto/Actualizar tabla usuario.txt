@@ -1,8 +1,0 @@
-ALTER TABLE `usuario` CHANGE `USU_CLAVE` `USU_CLAVE` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
-
-UPDATE `usuario` Set `USU_CLAVE`='$2y$10$9Qu2FBaX/46ZTAPSqALOUOsURaV.i1YV.Fa9V2u2HdBXXrWNiGB3O' WHERE `USU_USER`= 'admin';
-UPDATE `usuario` Set `USU_CLAVE`='$2y$10$3Cx/7jFxccFVZpmpJf75wurDgFMzDszRb/SqJQet4uiAShtJl/a/u' WHERE `USU_USER`= 'supervisor';
-UPDATE `usuario` Set `USU_CLAVE`='$2y$10$KIU8vAlXvs.VTD.UgmtxQe7Gv2UX7Ph8RJpDzKBvYJnNxr2hLWwoa' WHERE `USU_USER`= 'docente';
-UPDATE `usuario` Set `USU_CLAVE`='2y$10$urECY1ZN9ls21S0IWsUrtueyYr6tudnejZDIh3QjofO7HUGe9pE3i' WHERE `USU_USER`= 'alumno';
-UPDATE `usuario` Set `USU_CLAVE`='$2y$10$KKEzEQnZiKemMIUcCPCK7.VT9i./5gMeuDIddazpgKG71aam5Qir2' WHERE `USU_USER`= 'admin2';
-UPDATE `usuario` Set `USU_CLAVE`='$2y$10$j9pUnviOBF0bLK.4paxpoeTU22HFK.RGEhqzxVOwqwq3r4NVlkxTq' WHERE `USU_USER`= 'docente2';

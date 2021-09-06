@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title>Documento sin título</title>
 	<link href="../css/estiloMostrar.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 </head>
 
 <body>

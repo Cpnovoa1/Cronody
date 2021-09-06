@@ -53,14 +53,22 @@
 		  <i class='bx bx-menu menu2 logo_name'></i>
         </div> 
         <ul class="nav-links">
-          
           <li>
-            <a href="#">
+            <a href="doc_bievenidoprincipal.php" target="iframe_a">
+              <i class='fas fa-home' ></i>
+              <span class="link_name">Inicio</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="doc_bievenidoprincipal.php" target="iframe_a">Inicio</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="solicitar_horario_docente.php"  target="iframe_a">
               <i class='fa fa-calendar' ></i>
               <span class="link_name">Horarios</span>
             </a>
             <ul class="sub-menu blank">
-              <li><a class="link_name" href="#">Horarios</a></li>
+              <li><a class="link_name" href="solicitar_horario_docente.php"  target="iframe_a">Horarios</a></li>
             </ul>
           </li>          
           <li>
@@ -79,7 +87,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="../html/docente-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
+      <iframe src="doc_bievenidoprincipal.php" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>

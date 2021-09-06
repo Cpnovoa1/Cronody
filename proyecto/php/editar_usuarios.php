@@ -20,7 +20,7 @@
 	?>
 	<div class="cuerpo">
 	<div class="opciones">
-		<div class="bloque margen-top"><a href="#" id="idcrear" ><button type="button">Agregar Nuevo</button></a></div>
+		<div class="bloque margen-top"><a href="../html/forms/usuario_form_ing.php" id="idcrear" ><button type="button">Agregar Nuevo</button></a></div>
 		<div class="bloque"><form id="form1" name="form1" method="post" action="#">
 			<label class="filtro" for="select">Filtro usuarios</label>
 			<select name="estado" class="filtro">

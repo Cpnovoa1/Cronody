@@ -48,7 +48,6 @@ body {
 	font-size: 30px;
 	font-weight: 400;
 	padding: 10px 0;
-	box-shadow: inset 6px 0px 9px -8px rgba(10,31,68,0.70);
 }
 
 .cuerpo {
@@ -60,6 +59,17 @@ body {
 	align-content: stretch;
 	max-width: 100%;
 	padding: 0 50px;
+}
+
+.opciones {
+	display: flex;
+	justify-content: flex-end;
+	max-width: 100%;
+	padding: 10px 20px;
+	margin: 7px 7px 5px;
+	border: 1px solid rgba(159,159,159,0.40);
+	border-radius: 4px;
+	background-color: var(--fondo2);
 }
 
 .opciones-1{
@@ -354,35 +364,50 @@ label {
 	border-radius: 5px;
 	border: 2px var(--base2) solid;
 	color: white;
-	padding: 3px 0;
+	padding: 3px 5px;
 	cursor: pointer;
 	transition: all 0.1s;
   	font-size: 20px;
 	text-decoration: none;
 }
 
-[type=submit]{
+[type=submit], #idcancelar > [type=button]{
 	padding: 3px 15px;
+}
+
+a input [type=button] {
+	background-color: var(--base2-semitransp);
+	border-radius: 5px;
+	border: 2px var(--base2) solid;
+	color: white;
+	padding: 3px 15px;
+	cursor: pointer;
+	transition: all 0.1s;
+  	font-size: 20px;
+	text-decoration: none;
+}
+
+#idcancelar [type=button]{
+	background-color: rgba(155,34,34,0.50);
+	color: white;
+	border: 2px rgba(155,34,34,1.0) solid;
+	margin: 0 0 0 5px; 
+}
+
+#idcancelar [type=button]:hover{
+	background-color: rgba(155,34,34,1.0);
+	color: var(--fondo);
+	border: 2px rgba(155,34,34,1.0) solid;
 }
 
 [type=reset] {
 	width: 13%;
 }
 
-[type=button]{
-	width: 30%;
-}
-
 [type=button]:hover, [type=submit]:hover {
 	border: 2px var(--base2) solid;
 	color: var(--texto);
 	background-color: var(--base2);
-}
-
-[type=reset]:hover {
-	border: 2px rgba(197,43,46,1.00) solid;
-	color: rgba(197,43,46,1.00);
-	background: none;
 }
 
 table.tabla-horario {

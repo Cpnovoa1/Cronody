@@ -1,12 +1,17 @@
 <?php 
 $conexion=mysqli_connect('localhost','admin','admin','horarios');
-$docente=$_POST['docente'];
+$docente=$_POST['docente']; //SABER DONDE ESTA LA VARIABLE 'DOCENTE'
 
 	$area = "";
+    $codigo;
+	$materia;
+
 	$sql2="Select * From materias Where MAT_CODIGO = '$docente'";
 	$result2=mysqli_query($conexion,$sql2);
 	while ($row=mysqli_fetch_row($result2)) {
 		$area = $row[3];
+		$codigo=$row[0];
+		$materia = $row[2];
 	}
 	
 	$sql="Select * From docente Where DOC_CODIGO = 
@@ -45,60 +50,27 @@ $docente=$_POST['docente'];
 	$cadena="";
 
 	while ($ver=mysqli_fetch_row($result)) {
-		$cadena=$cadena.'<div class="cont-elem '.$tipo.'" draggable="true" id="docente['.$ver[0].']">
+		
+		$sql3="Select * From materias Where MAT_NOMBRE = '$materia' AND DOC_CODIGO='$ver[0]'";
+		$result3=mysqli_query($conexion,$sql3);
+		while ($row3=mysqli_fetch_row($result3)) {
+			$codigo=$row3[0];
+		}
+		
+		$cadena=$cadena.'<div class="cont-elem '.$tipo.'" idmateria="'.$codigo.'" draggable="true" ondragstart="event.dataTransfer.setData("text/plain",null)" iddocente='.$ver[0].'
+						  tipo="'.$tipo.'" icono="'.$icon.'" docente="'.$ver[2].' '.$ver[3].'" materia="'.$materia.'">
+		                 
+		                 <div class="cont-elem '.$tipo.'">
 							<div class="elem-icono"><i class="'.$icon.' fa-2x"></i></div>
 							<div class="elem-box">
 								<div class="box-docen">'.$ver[2].' '.$ver[3].'</div>
-								<div class="box-info">Horas disponibles: '.$ver[8].'</div>
+								<div class="box-info">Horas disponibles: '.$ver[8].'</div></div>
 							</div>
+							</div>
+							
 						</div>';
 	}
 
 	echo  $cadena;
-
-		/*$area = "";
-		$sql2="Select MAT_AREA From materias Where MAT_CODIGO = '$docente'";
-		$result2=mysqli_query($conexion,$sql2);
-		
-		while ($row=mysqli_fetch_row($result2)) {
-			switch($row["MAT_AREA"]){
-				case "Currículo Integrador por ámbitos de aprendizaje":
-					$area = "cua";
-					break;
-				case "Educación Cultural y Artística":
-					$area = "eca";
-					break;
-				case "Educación Física":
-					$area = "edf";
-					break;
-				case "Proyectos Escolares":
-					$area = "pye";
-					break;
-				case "Desarrollo Humano Integral":
-					$area = "dhi";
-					break;
-				case "Lengua y Literatura":
-					$area = "lli";
-					break;
-				case "Matemática":
-					$area = "mat";
-					break;
-				case "Ciencias Sociales":
-					$area = "ccs";
-					break;
-				case "Ciencias Naturales":
-					$area = "ccn";
-					break;
-				case "Lengua Extranjera":
-					$area = "lex";
-					break;
-				case "Módulo Interdisciplinar":
-					$area = "mdi";
-					break;
-				default:
-					$area = "nah";
-					break;
-			}
-		}*/
 
 ?>

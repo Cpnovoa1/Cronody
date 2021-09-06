@@ -24,9 +24,15 @@ $conexion=mysqli_connect('localhost','admin','admin','horarios');
 	$result=mysqli_query($conexion,$sql);
 
 	$cadena="";
+    $identificador="";
+	$codigo = "";
+	$aula_alum = "";
 
 	while ($ver=mysqli_fetch_row($result)) {
 		$cadena = $cadena.$ver[2+$incremento].' '.$ver[3+$incremento];
+		$identificador=$identificador.$ver[5+$incremento];
+		$codigo = $ver[0];
+		$aula_alum = $ver[1];
 	}
 	
 

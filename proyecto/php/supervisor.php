@@ -53,7 +53,16 @@
 		  <i class='bx bx-menu menu2 logo_name'></i>
         </div> 
         <ul class="nav-links">
-          <li>
+            <li>
+            <a href="super_bienvenidoprincipal.php" target="iframe_a">
+              <i class='fas fa-home' ></i>
+              <span class="link_name">Inicio</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="super_bienvenidoprincipal.php" target="iframe_a">Inicio</a></li>
+            </ul>
+          </li>
+			<li>
             <div class="iocn-link">
               <a href="#">
                 <i class='fa fa-calendar' ></i>
@@ -62,10 +71,11 @@
               <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-              <li><a href="crear_horario.php" target="iframe_a">Crear horario</a></li>
+			  <li><a class="link_name" href="#">Horarios</a></li>
+              <li><a href="inicializar.php" target="iframe_a">Crear horario</a></li>
               <li><a href="#">Modificar horario</a></li>
-              <li><a href="#">Eliminar horario</a></li>
-			  <li><a href="#">Mostrar horario</a></li>
+              <li><a href="editar_horario.php" target="iframe_a">Eliminar horario</a></li>
+			  <li><a href="solicitar_horario.php" target="iframe_a">Mostrar horario</a></li>
             </ul>
           </li>         
           <li>
@@ -84,7 +94,7 @@
     </ul>
       </div>
     <section class="home-section">
-      <iframe src="../html/supervisor-bienvenido.html" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
+      <iframe src="super_bienvenidoprincipal.php" name="iframe_a" height="100%" width="100%" title="Iframe Example" style="border: none;"></iframe>
     </section>
     <script src="../js/barra.js"></script>
 </body>

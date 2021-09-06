@@ -17,7 +17,10 @@
 	--confirm2: rgba(108,39,184,1.00);
 	--confirm-osc: rgba(160,75,32,1.00); 
 	--fondo: rgba(228,228,228,1.00);
-	--fondo2: rgba(236,236,236,1.00); 
+	--fondo2: rgba(236,236,236,1.00);
+	--negro: rgba(0,0,0,1.00);
+	--gris2: rgba(100, 100, 100,1.00);
+	--gris: rgba(67, 65, 70,1.00);
 }
 
 * {
@@ -29,7 +32,19 @@
 body {
 	background-color: var(--fondo);
 }
-
+.info{
+	margin: 20px 20px 20px 20px;
+	
+}
+.principales{
+	color: var(--gris2);
+	font-weight: 100;
+	margin-bottom: 8px;
+	
+}
+.solucion{
+	margin-bottom: -8px;
+}
 .contenedor {
 	display: flex;
 	flex-direction: column;
@@ -39,18 +54,77 @@ body {
 	align-content: stretch;
 	max-width: 100%;
 }
+.cont-tabla{
+	display: block;
+	float: left;
+	min-height: 130px;
+	min-width: 10%;
+	max-width: 100%;
+	padding: 20px 20px;
+	margin: 5px 10px;
+	border: 1px solid rgba(159,159,159,0.40);
+	border-radius: 4px;
+	background-color: var(--fondo2);
+}
 
+.decoloracion a:hover {
+	color:var(--activo);
+	font-weight: 300;
+	transition: width 2s;
+}
+
+.nombre {
+	margin-bottom: -8px;
+}
+p{
+	text-decoration-color:#464646;
+	font-weight: 100;
+}
+.decoloracion a{
+	color: var(--gris);
+	text-decoration: none;
+	font-weight: 100;
+}
+
+.letra{
+	font-size: 17px;
+}
+
+ li a{
+  color: var(--negro);
+  font-size: 15px;
+  padding: 5px 0;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+	 font-weight: 100;
+}
+label{
+	text-decoration-color:#464646;
+	font-weight: 100;
+}
 .cabeza{
 	display: block;
 	text-align: center;
 	background-color: var(--base);
 	color: var(--texto);
 	font-size: 30px;
-	font-weight: 400;
+	font-weight: 100;
 	padding: 10px 0;
 	box-shadow: inset 6px 0px 9px -8px rgba(10,31,68,0.70);
 }
-
+.pag-box{
+	margin-left: -100px;
+	font-weight: 100;
+	color: var(--gris2);
+}
+.job{
+	color: var(--gris2);
+}
+.profile_name{
+	font-weight: 100;
+	color: var(--gris2);
+}
 .cuerpo {
 	display: flex;
 	flex-direction: column;
@@ -113,8 +187,8 @@ body {
 }
 
 .titulo {
-	font-size: 55px;
-	font-weight: 400;
+	font-size: 50px;
+	font-weight: 100;
 	color: var(--base2);
 	width: 100%;
 	text-align: center;

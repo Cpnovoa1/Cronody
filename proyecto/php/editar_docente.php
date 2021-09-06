@@ -21,7 +21,7 @@
 	<div class="cuerpo">
 	<div class="opciones">
 		<div class="bloque margen-top">
-			<a href="#" id="idcrear" ><button type="button">Agregar Nuevo</button></a>
+			<a href="../html/forms/doc_form_ing.html" id="idcrear" ><button type="button">Agregar Nuevo</button></a>
 			<a href="asignarmaterias.php" class="crear" ><button type="button">Asignar materia a docente</button></a>
 		</div>
 		<div class="bloque"><form id="form1" name="form1" method="post" action="#">

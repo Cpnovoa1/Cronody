@@ -25,6 +25,8 @@ while($row = mysqli_fetch_array($result)){
 	}
 }
 
+$myIP=getRealIP();
+
 if($r){$actualizar = "UPDATE usuario SET ROL_CODIGO='$rol', USU_USER='$user', USU_CLAVE='$clave' WHERE USU_CODIGO='$ide'";
 $result2 = mysqli_query( $conn, $actualizar );}
 
@@ -33,11 +35,24 @@ if($result2){
 			alert("Los datos se han actualizado correctamente");
 			window.location="editar_usuarios.php";
 		</script>';
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($rol,'$myIP','Actualizo Registro',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al guardar");
 			window.history.go(-1);
 		</script>';
 }
+
+function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+	return $_SERVER['REMOTE_ADDR'];
+}	
+
 ?>
 	

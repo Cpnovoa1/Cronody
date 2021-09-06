@@ -14,15 +14,15 @@
 	$conn = new mysqli( "localhost", "admin", "admin", "horarios" );
 
 	//Ejecutamos la sentencia SQL
-	$result = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO order by p.aul_curso" );
-	$activos = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO and p.AUL_ESTADO=1 order by p.aul_curso" );
-	$desactivos = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO and p.AUL_ESTADO=0 order by p.aul_curso" );
+	$result = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO group by p.AUL_CODIGO order by p.aul_curso" );
+	$activos = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO and p.AUL_ESTADO=1 group by p.AUL_CODIGO order by p.aul_curso" );
+	$desactivos = mysqli_query( $conn, "Select * From paralelo p, horarios h, nivel n where (p.HOR_CODIGO=h.HOR_CODIGO or p.hor_codigo is null) and p.NIV_CODIGO=n.NIV_CODIGO and p.AUL_ESTADO=0 group by p.AUL_CODIGO order by p.aul_curso" );
 	?>
 	<div class="cuerpo">
 	<div class="opciones">
 		<div class="bloque margen-top">
-			<a href="#" id="idcrear" ><button type="button">Agregar Nuevo</button></a>
-			<a href="#" id="idcrear" ><button type="button">Agregar Nivel</button></a>
+			<a href="../html/forms/aula_form_ing.php" id="idcrear" ><button type="button">Agregar Nuevo</button></a>
+			<a href="../html/forms/nivel_form_ing.html" id="idcrear" ><button type="button">Agregar Nivel</button></a>
 		</div>
 		<div class="bloque"><form id="form1" name="form1" method="post" action="#">
 			<label class="filtro" for="select">Filtro aulas</label>
@@ -61,7 +61,7 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if(is_null($row[1])){$hor = "Ninguno";}
+					if(is_null($row[1]) || $row['HOR_ESTADO'] == 0){$hor = "Ninguno";}
 					else {$hor = $row['HOR_ALECTIVO'];}
 					echo '<td>' .$hor. '</td>';
 					if($row['AUL_ESTADO']=='1'){$estado = 'title="Eliminar" class="tabla-registro-elim btn-eliminar-a"><i class="fas fa-trash"></i>'; $est = "Activo";}
@@ -81,7 +81,7 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if(is_null($row[1])){$hor = "Ninguno";}
+					if(is_null($row[1]) || $row['HOR_ESTADO'] == 0){$hor = "Ninguno";}
 					else {$hor = $row['HOR_ALECTIVO'];}
 					echo '<td>' .$hor. '</td>';
 					echo '<td> <a href="editar_aulas_recibe.php?u='.$row[ "AUL_CODIGO" ].'" title="Editar" class="btn-editar"><i class="fas fa-edit"></i></a>
@@ -99,7 +99,7 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if(is_null($row[1])){$hor = "Ninguno";}
+					if(is_null($row[1]) || $row['HOR_ESTADO'] == 0){$hor = "Ninguno";}
 					else {$hor = $row['HOR_ALECTIVO'];}
 					echo '<td>' .$hor. '</td>';
 					echo '<td> <a href="editar_aulas_recibe.php?u='.$row[ "AUL_CODIGO" ].'" title="Editar" class="btn-editar"><i class="fas fa-edit"></i></a>

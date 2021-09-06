@@ -5,7 +5,7 @@ $id = $_GET['u'];
 
 $consultar = "SELECT * FROM alumno WHERE ALU_CODIGO='$id'";
 $result = mysqli_query( $conn, $consultar );
-
+$myIP=getRealIP();
 while($row = mysqli_fetch_array($result)){
 	$estado = $row["ALU_ESTADO"];
 	$usu = $row["USU_CODIGO"];
@@ -29,11 +29,24 @@ if($result2 && $resultu){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_alumno.php";
 		</script>';
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Alumno',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al eliminar");
 			window.history.go(-1);
 		</script>';
 }
+
+function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+	return $_SERVER['REMOTE_ADDR'];
+}
+
 ?>
 	

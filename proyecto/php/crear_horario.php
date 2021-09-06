@@ -40,7 +40,7 @@
 			if ($conn ->connect_error) {
 				die("Connection failed: " . $conn ->connect_error);
 			}
-			$sSQL_ver="Select * From paralelo Where HOR_CODIGO is null AND AUL_ESTADO=1 Group by AUL_CURSO  Order by AUL_CURSO";
+			$sSQL_ver="Select * From paralelo p, horarios h Where (p.HOR_CODIGO=h.HOR_CODIGO and h.HOR_ESTADO = 0) or p.HOR_CODIGO is null  AND p.AUL_ESTADO=1 Group by p.AUL_CURSO  Order by p.AUL_CURSO";
 
 			$result_ver=mysqli_query($conn,$sSQL_ver);
 			$valor=0;
@@ -85,8 +85,9 @@
 				</table>
 			</div>
 		</div>
-		<div class="guardar">
-			<button type="submit" value="Aceptar" disabled>Guardar</button>
+		<div class="opciones">
+			<a href="guardar_horario.php"><input type="button" value="Guardar"></a>
+			<a href="super_bienvenidoprincipal.php" id="idcancelar"><button type="button" value="cancelar">Cancelar</button></a>
 		</div>
 		</form>
 	</div>
@@ -98,6 +99,167 @@
 </script>
 
 <script type="text/javascript">
+	//Ojito aca inicia.
+	
+	
+	crearmovimiento();
+            function crearmovimiento() {
+                var dragged;
+                var copia;
+                var idmateria;
+				var iddocente;
+				var tipo;
+				var icon;
+				var materia;
+				var docenten;
+                /* events fired on the draggable target */
+                document.addEventListener("drag", function (event) {
+
+                }, false);
+
+                document.addEventListener("dragstart", function (event) {
+                    // store a ref. on the dragged elem
+                    dragged = event.target;
+                    // make it half transparent
+                    event.target.style.opacity = .5;
+
+                    idmateria = event.target.getAttribute("idmateria");
+					iddocente = event.target.getAttribute("iddocente");
+					
+					tipo = event.target.getAttribute("tipo");
+					icon = event.target.getAttribute("icono");
+					materia = event.target.getAttribute("materia");
+					docenten = event.target.getAttribute("docente");
+
+                    //copia = "<div>"  + dragged.innerHTML + "</div>";
+					
+					copia = '<div class="cont-elem '+tipo+'"><div class="elem-icono"><i class="'+icon+' fa-2x"></i></div>'+
+							'<div class="elem-box"><div class="box-docen">'+ materia +'</div><div class="box-info">'+ docenten +'</div></div></div></div>';
+
+                    event.dataTransfer.setData('Text', copia);
+
+                }, false);
+
+                document.addEventListener("dragend", function (event) {
+                    // reset the transparency
+                    event.target.style.opacity = "";
+                }, false);
+
+                /* events fired on the drop targets */
+                document.addEventListener("dragover", function (event) {
+                    // prevent default to allow drop
+                    event.preventDefault();
+                }, false);
+
+                document.addEventListener("dragenter", function (event) {
+                    // highlight potential drop target when the draggable element enters it
+                    if (event.target.className == "dropzone") {
+                        
+                    }
+
+                }, false);
+
+                document.addEventListener("dragleave", function (event) {
+                    // reset background of potential drop target when the draggable element leaves it
+                    if (event.target.className == "dropzone") {
+						
+                    } 
+
+                }, false);
+
+                document.addEventListener("drop", function (event) {
+                    // prevent default action (open as link for some elements)
+                    event.preventDefault();
+                    // move dragged elem to the selected drop target
+					
+                    if (event.target.className == "dropzone") {
+                        
+                        
+                        //event.target.innerHTML = event.dataTransfer.getData("Text");
+                        //ojo aca puede que sea
+						
+						var horaIni = event.target.getAttribute("idhoraIni");
+						var horaFin = event.target.getAttribute("idhoraFin");
+						var dia = event.target.getAttribute("iddia");
+						var aula = document.getElementById("idparal").value;
+						<?php 
+						$user = $_SESSION['user']; 
+						$sup = "";
+						$sql="Select * From supervisor Where USU_CODIGO = '$user'";
+						$result=mysqli_query($conn,$sql);
+						while ($ver=mysqli_fetch_row($result)) {
+							$sup = $ver[0];
+						}
+						if(!$result){$sup = 9;}
+						?>
+						var anioLectivo = anio();
+						//var materia = event.getAttribute("idmateria");
+						var materia1 = idmateria;
+						//var docente = event.getAttribute("iddocente");
+						var docente1 = iddocente;
+						var supervisor = <?php echo $sup;?>;
+                        event.target.style.height = "auto";
+						//docnete no guardar porque la materia ya especifica que docente es
+						//alert("HOra ini" +horaIni + "\n"+ "Hora fin" + horaFin + "\n DIa"+ dia + "\n MAteria" + materia1 + "\n Docente"+ docente1 + "\n Aula" + aula + "\n Supervisor" + supervisor + "\n Año" + anioLectivo);
+						//window.location = "recibehorario.php?horaIni=" + horaIni + "&horaFin=" + horaFin + "&dia=" + dia + "&materia=" + materia;
+						var recibio = "";
+						var variable = 0;
+						
+						jQuery.extend({
+							getValues: function(url) {
+								var result = null;
+								$.ajax(
+									{
+										url: url,
+										type: 'get',
+										async: false,
+										success: function(data){
+											result = data;
+										}
+									}
+								);
+								return result;
+							}		
+						});
+							
+						recibio = $.getValues('recibeDatos.php?doc='+docente1+'&sup='+ supervisor+'&anio='+anioLectivo+'&materia='+materia1+'&aula='+aula+'&dia='+dia+'&horini='+horaIni+'&horfin='+horaFin+'');
+						
+						if(recibio == '1'){
+							event.target.innerHTML = event.dataTransfer.getData("Text");
+							$("#idmateria option:selected").each(function () {
+								docente = $(this).val();
+								$.post("desplegardocentesdrag.php", { docente: docente}, function(data){
+									$("#iddocente").html(data);
+								});            
+							});
+						} else if(recibio == '0'){
+							alert("Hubo un error con el envio de datos");
+						} else if(recibio == '2'){
+							alert("El docente ya no está disponible");
+						} else if(recibio == '3'){
+							alert("Ya se cumplió el total de horas pedagógicas de esta materia");
+						} else if(recibio == '4'){
+							alert("El docente ya imparte una materia en ese dia a esa hora");
+						} else if(recibio == '5'){
+							alert("No puede colocar más de 2 horas por día de una misma materia");
+						}
+						
+                    }
+					
+
+                }, true);
+            }
+	
+			function anio(){
+				var fecha = new Date();
+				if(fecha.getMonth()+1 >= 9){
+					return (fecha.getFullYear()+"-"+(fecha.getFullYear()+1));
+				} else {
+					return ((fecha.getFullYear()-1)+"-"+fecha.getFullYear());
+				}
+			}
+	
+	//Ojito Aca termina.
 	$(document).ready(function(){
 		//$('#idcurso').val('');
 			//recargarLista("#idcurso","#idparalelo","curso=","desplegarparalelo.php");
@@ -159,7 +321,11 @@
 			});
 		});
 	})
+	//OJO aca comienza el dropzone.
+	
+	//Ojo aca termina el dropzone.
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
