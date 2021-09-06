@@ -110,7 +110,7 @@
           </li>
           <li>
             <div class="iocn-link">
-              <a href="#">
+              <a href="mostrar_auditorias.php" target="iframe_a">
                 <i class='fas fa-address-book' ></i>
                 <span class="link_name">Auditoria</span>
               </a>

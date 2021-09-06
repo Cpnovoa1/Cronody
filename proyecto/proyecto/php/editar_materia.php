@@ -14,9 +14,9 @@
 	$conn = new mysqli( "localhost", "admin", "admin", "horarios" );
 
 	//Ejecutamos la sentencia SQL
-	$result = mysqli_query( $conn, "select * from materias m, docente d, nivel n where m.doc_codigo=d.doc_codigo and m.niv_codigo=n.niv_codigo" );
-	$activos = mysqli_query( $conn, "select * from materias m, docente d, nivel n where m.doc_codigo=d.doc_codigo and m.niv_codigo=n.niv_codigo and m.mat_estado=1" );
-	$desactivos = mysqli_query( $conn, "select * from materias m, docente d, nivel n where m.doc_codigo=d.doc_codigo and m.niv_codigo=n.niv_codigo and m.mat_estado=0" );
+	$result = mysqli_query( $conn, "select * from materias m, docente d, nivel n where (m.doc_codigo=d.doc_codigo or m.DOC_CODIGO is null) and m.niv_codigo=n.niv_codigo group by m.MAT_CODIGO order by m.MAT_NOMBRE" );
+	$activos = mysqli_query( $conn, "select * from materias m, docente d, nivel n where (m.doc_codigo=d.doc_codigo or m.DOC_CODIGO is null) and m.niv_codigo=n.niv_codigo and m.mat_estado=1 group by m.MAT_CODIGO order by m.MAT_NOMBRE" );
+	$desactivos = mysqli_query( $conn, "select * from materias m, docente d, nivel n where (m.doc_codigo=d.doc_codigo or m.DOC_CODIGO is null) and m.niv_codigo=n.niv_codigo and m.mat_estado=0 group by m.MAT_CODIGO order by m.MAT_NOMBRE" );
 	$materiasq = mysqli_query($conn, "select *, count(case MAT_ESTADO when '1' then 1 else null end and case d.DOC_ESTADO when '1' then 1 else null end) docentes, sum(m.MAT_ESTADO) estado from materias m, docente d, nivel n where (m.doc_codigo=d.doc_codigo or m.doc_codigo is null) and m.niv_codigo=n.niv_codigo group by m.MAT_NOMBRE, m.NIV_CODIGO order by mat_nombre");
 	?>
 	<div class="cuerpo">
@@ -64,8 +64,8 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if($row['DOC_ESTADO']=='1'){$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
-					else {$doc = "Ninguno";}
+					if($row['DOC_ESTADO']=='0' || is_null($row[1])){$doc = "Ninguno";}
+					else {$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
 					echo '<td>' .$doc. '</td>';
 					echo '<td>' . $row[ "MAT_CARGAHORARIA" ] . '</td>';
 					if($row['MAT_ESTADO']=='1'){$estado = 'title="Eliminar" class="tabla-registro-elim btn-eliminar-a"><i class="fas fa-trash"></i>'; $est = "Activo";}
@@ -85,8 +85,8 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if($row['DOC_ESTADO']=='1'){$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
-					else {$doc = "Ninguno";}
+					if($row['DOC_ESTADO']=='0' || is_null($row[1])){$doc = "Ninguno";}
+					else {$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
 					echo '<td>' .$doc. '</td>';
 					echo '<td>' . $row[ "MAT_CARGAHORARIA" ] . '</td>';
 					echo '<td> <a href="editar_materia_recibe.php?u='.$row[ "MAT_CODIGO" ].'" title="Editar" class="btn-editar"><i class="fas fa-edit"></i></a>
@@ -104,8 +104,8 @@
 					if($row['NIV_ESTADO']=='1'){$niv = ucfirst(mb_strtolower($row[ "NIV_NOMBRE" ], 'UTF-8')). ' ' .ucfirst(mb_strtolower($row[ "NIV_SUBNIVEL" ], 'UTF-8'));}
 					else {$niv = "Ninguno";}
 					echo '<td>' .$niv. '</td>';
-					if($row['DOC_ESTADO']=='1'){$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
-					else {$doc = "Ninguno";}
+					if($row['DOC_ESTADO']=='0' || is_null($row[1])){$doc = "Ninguno";}
+					else {$doc = $row[ "DOC_NOMBRE" ] . ' ' . $row[ "DOC_APELLIDO" ];}
 					echo '<td>' .$doc. '</td>';
 					echo '<td>' . $row[ "MAT_CARGAHORARIA" ] . '</td>';
 					echo '<td> <a href="editar_materia_recibe.php?u='.$row[ "MAT_CODIGO" ].'" title="Editar" class="btn-editar"><i class="fas fa-edit"></i></a>

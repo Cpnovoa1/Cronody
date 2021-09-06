@@ -32,7 +32,7 @@
 			<div class="pag-box">
 				<div class="titulo"></div>
 				<div class="name-job">
-                 <div class="profile_name" id="idrol"><div class="titulo" >Docente</div></div>
+                 <div class="profile_name" id="idrol"><div class="titulo" >Alumno</div></div>
                 <div class="job" id="idnombre"><p>Usuario logueado:</p><ladel><?php echo '<p>'.$cadena.'</p>'; ?></ladel><p>CI de identidad:</p>
 					<ladel><?php echo '<p>'.$identificador.'</p>'; ?></ladel></div>
           </div>

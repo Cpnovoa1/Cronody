@@ -9,7 +9,8 @@
 	--disabled: rgba(19,92,175,0.50);
 	--info: rgba(46,46,46,1.00);
 	--sec: rgba(185,163,47,1.00);
-	//color:rgba(185,163,47,1.00);
+	--base3: rgba(20,56,120,1.00);
+	--texto2: rgba(219,219,219,1.00);
 }
 
 * {
@@ -30,6 +31,18 @@ body {
 	/*background-color: var(--base2);*/
 	width: 100%;
 	margin: 15px 0;
+}
+
+.cabeza{
+	display: block;
+	text-align: center;
+	background-color: var(--base3);
+	color: var(--texto2);
+	font-size: 30px;
+	font-weight: 400;
+	padding: 10px 0;
+	width: 100%;
+	box-shadow: inset 6px 0px 9px -8px rgba(10,31,68,0.70);
 }
 
 .contenedor{

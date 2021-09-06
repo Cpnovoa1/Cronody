@@ -62,7 +62,7 @@
 			<a href="editar_aulas.php">Aulas</a>
 			</div>
 			<div class="cont-tabla decoloracion letra" ><div class="principales" style="text-align: center"> <i class='fas fa-address-book' ></i>&nbsp;<label>Auditoria</label></div>
-			<a>Mostrar acciones</a>
+			<a href="mostrar_auditorias.php">Mostrar acciones</a>
 		   
 			</div>
 

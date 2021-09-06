@@ -9,7 +9,7 @@
 	<?php
 	//declarar variables
 	$paralelo = $_POST[ 'nombre' ];
-	$curso = $_POST[ 'apellido' ];
+	$curso = $_POST[ 'curso' ];
 	$nivel = $_POST[ 'nivel' ];
 
 	$nombreServidor = "localhost";

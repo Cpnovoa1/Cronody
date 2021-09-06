@@ -115,6 +115,7 @@ const inputs = document.querySelectorAll('#form1 input');
 
 const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,50}$/,
+	curso: /^[a-zA-ZÀ-ÿ0-9\s]{1,20}$/,
 	ltrabajo:/^[a-zA-ZÀ-ÿ0-9\s ]{1,50}$/,
 	usuario: /^[a-zA-ZÀ-ÿ0-9]{1,50}$/,
 	clave: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/,
@@ -139,7 +140,8 @@ const campos = {
 	alu_email: true,
 	claveusuario:true,
 	doc_telefono: true,
-	alu_telefono: true
+	alu_telefono: true,
+	curso: true
 }
 
 function validarRol(){
@@ -184,6 +186,9 @@ const validarFormulario = (e) => {
 		break;
 		case "apellido":
 			validarCampo(expresiones.nombre, e.target, 'apellido');
+		break;
+		case "curso":
+			validarCampo(expresiones.curso, e.target, 'curso');
 		break;
 		case "cedula":
 			validarCampo(expresiones.cedula, e.target, 'cedula');
@@ -324,7 +329,7 @@ formulario.addEventListener('submit', (e) => {
 			}
 			break;
 		case "Aula":
-			if(campos.nombre && campos.apellido){
+			if(campos.nombre && campos.curso){
 				formulario.submit();
 			} else {
 				validarForm();

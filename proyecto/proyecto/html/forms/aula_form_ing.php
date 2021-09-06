@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<div class="cabeza">Ingresar Aula</div>
 <div class="contenido">
 <div class="form-contenedor">
 <form id="form1" name="form1" method="post" action="php/registro_aula.php">
@@ -19,10 +20,10 @@
 	<input type="text" class="formulario__input" name="nombre" id="idnombre" placeholder="Ingrese el paralelo ej: A" required><i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar letras</p></div>
 
-	<div class="form-dividido2 formulario__grupo" id="grupo__apellido"><p><label for="apellido" class="formulario__label">Aula curso </label></p>
-	<input type="text" class="formulario__input" name="apellido" id="idapellido" placeholder="Ingrese el curso ej: 2do Básica" required>
+	<div class="form-dividido2 formulario__grupo" id="grupo__curso"><p><label for="curso" class="formulario__label">Aula curso </label></p>
+	<input type="text" class="formulario__input" name="curso" id="idcurso" placeholder="Ingrese el curso ej: 2do Básica" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
-	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar letras</p></div></div>
+	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Puede ingresar letras y numeros</p></div></div>
 	<input type="hidden" value="2000-01-02" id="idfnacimiento">
 	<input type="hidden" id="idecivil" value="Aula">
 	<div class="row formulario__grupo" id="grupo__ecivil"><p><label for="ecivil" class="formulario__label">Nivel</label></p>
