@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* CSS Document */
+
+input[type='text'], input[type='password'], input[type='date'], input[type='email'], input[type='tel'], select{
+	background: none;
+	color: #161616;
+	border: none;
+	border: solid 2px var(--azul-claro);
+	border-radius: 5px;
+	margin: 5px 0 15px 0;
+	padding: 2px 5px;
+	width: 55%;
+	font-size: 20px;
+	transition: all 0.3s;
+}
+
+input::placeholder{
+	background: none;
+	color:rgba(14,72,120,0.84);
+	font-size: 20px;
+}
+
+label {
+	font-size: 21px;
+	color: rgba(53,53,53,1.00);
+}
+
+[type='datetime-local'] {
+	background: none;
+	color: #AEAEAE;
+	border: none;
+	border-bottom: solid 2px var(--azul-claro);
+	margin: 5px;
+	padding: 2px;
+	width: 50%;
+	transition: all 0.3s;
+}
+
+[type=button], [type=submit], [type=reset] {
+	background-color: var(--azul-claro);
+	border-radius: 5px;
+	border: 2px var(--azul-claro) solid;
+	color: white;
+	padding: 2px 0 0 0;
+	cursor: pointer;
+	transition: all 0.1s;
+  	font-size: 20px;
+	text-decoration: none;
+}
+
+[type=submit]{
+	width: 55%
+}
+
+[type=reset] {
+	width: 10%;
+}
+
+[type=button]:hover, [type=submit]:hover {
+	border: 2px var(--azul-claro) solid;
+	color: var(--azul-claro);
+	background: none;
+}
+
+[type=reset]:hover {
+	border: 2px rgba(197,43,46,1.00) solid;
+	color: rgba(197,43,46,1.00);
+	background: none;
+}
+
