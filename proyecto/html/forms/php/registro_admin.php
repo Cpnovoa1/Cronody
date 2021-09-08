@@ -8,6 +8,7 @@
 <body>
 	<?php
 	//declarar variables
+	$mensaje = "";//Mensaje si se repite cedula o usuario
 	$nombre = $_POST[ 'nombre' ]; 
 	$apellido = $_POST[ 'apellido' ];
 	$user = $_POST[ 'nombreusuario' ];
@@ -33,33 +34,23 @@
 	}
 
 	$repetido = 0;
-	$query_rep1 = "Select * From administrador";
-	$query_rep2 = "Select * From supervisor";
-	$query_rep3 = "Select * From docente";
-	$query_rep4 = "Select * From alumno";
-
-	$result_rep1 = mysqli_query( $conn, $query_rep1 );
-	while ( $row = mysqli_fetch_array( $result_rep1 ) ) {
-		if ( $cedula == $row[ "ADM_CEDULA" ] ) {
+	$query_rep1 = "Select u.USU_USER, a.ADM_CEDULA, s.SUP_CEDULA, d.DOC_CEDULA, al.ALU_CEDULA From administrador a, supervisor s, docente d, alumno al, usuario u";
+	
+	$result_rep = mysqli_query( $conn, $query_rep1 );
+	while ( $row = mysqli_fetch_array( $result_rep ) ) {
+		if ( $user == $row[ "USU_USER" ]) {
 			$repetido = 1;
+			$mensaje .= "nombre de usuario";
+			break;
 		}
 	}
-	$result_rep2 = mysqli_query( $conn, $query_rep2 );
-	while ( $row = mysqli_fetch_array( $result_rep2 ) ) {
-		if ( $cedula == $row[ "SUP_CEDULA" ] ) {
+	$result_rep = mysqli_query( $conn, $query_rep1 );
+	while ( $row = mysqli_fetch_array( $result_rep ) ) {
+		if ( $cedula == $row[ "ADM_CEDULA" ] || $cedula == $row[ "SUP_CEDULA" ]|| $cedula == $row[ "DOC_CEDULA" ] || $cedula == $row[ "DOC_CEDULA" ]) {
+			if($repetido == 1){$mensaje .= " y ";}
 			$repetido = 1;
-		}
-	}
-	$result_rep3 = mysqli_query( $conn, $query_rep3 );
-	while ( $row = mysqli_fetch_array( $result_rep3 ) ) {
-		if ( $cedula == $row[ "DOC_CEDULA" ] ) {
-			$repetido = 1;
-		}
-	}
-	$result_rep4 = mysqli_query( $conn, $query_rep4 );
-	while ( $row = mysqli_fetch_array( $result_rep4 ) ) {
-		if ( $cedula == $row[ "ALU_CEDULA" ] ) {
-			$repetido = 1;
+			$mensaje .= "cédula";
+			break;
 		}
 	}
 	if ( $repetido == 0 ) {
@@ -83,7 +74,7 @@
 			echo "<script>window.alert('Error al ingresar los datos de Usuario');window.history.go(-1);</script>";
 		}
 	}else {
-			echo "<script>window.alert('Error al ingresar los datos de usuario, cédula ya existe'); window.history.go(-1);</script>";
+			echo "<script>window.alert('Error, $mensaje ya existe. Ingrese otro'); window.history.go(-1);</script>";
 		}
 
 	?>

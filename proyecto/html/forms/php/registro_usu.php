@@ -30,49 +30,25 @@
 	}
 
 	$repetido = 0;
-	$query_rep1 = "Select * From administrador";
-	$query_rep2 = "Select * From supervisor";
-	$query_rep3 = "Select * From docente";
-	$query_rep4 = "Select * From alumno";
-	$query_rep5 = "Select * From usuario";
+	$query_rep1 = "Select u.USU_USER, a.ADM_CEDULA, s.SUP_CEDULA, d.DOC_CEDULA, al.ALU_CEDULA From administrador a, supervisor s, docente d, alumno al, usuario u";
 	
-	$result_rep = mysqli_query( $conn, $query_rep5 );
+	$result_rep = mysqli_query( $conn, $query_rep1 );
 	while ( $row = mysqli_fetch_array( $result_rep ) ) {
 		if ( $user == $row[ "USU_USER" ]) {
 			$repetido = 1;
-			$mensaje = "nombre de usuario";
+			$mensaje .= "nombre de usuario";
+			break;
 		}
 	}
-
 	$result_rep = mysqli_query( $conn, $query_rep1 );
 	while ( $row = mysqli_fetch_array( $result_rep ) ) {
-		if ( $cedula == $row[ "ADM_CEDULA" ]) {
+		if ( $cedula == $row[ "ADM_CEDULA" ] || $cedula == $row[ "SUP_CEDULA" ]|| $cedula == $row[ "DOC_CEDULA" ] || $cedula == $row[ "DOC_CEDULA" ]) {
+			if($repetido == 1){$mensaje .= " y ";}
 			$repetido = 1;
-			$mensaje = "cédula";
+			$mensaje .= "cédula";
+			break;
 		}
 	}
-	$result_rep = mysqli_query( $conn, $query_rep2 );
-	while ( $row = mysqli_fetch_array( $result_rep ) ) {
-		if ( $cedula == $row[ "SUP_CEDULA" ] ) {
-			$repetido = 1;
-			$mensaje = "cédula";
-		}
-	}
-	$result_rep = mysqli_query( $conn, $query_rep3 );
-	while ( $row = mysqli_fetch_array( $result_rep ) ) {
-		if ( $cedula == $row[ "DOC_CEDULA" ] ) {
-			$repetido = 1;
-			$mensaje = "cédula";
-		}
-	}
-	$result_rep = mysqli_query( $conn, $query_rep4 );
-	while ( $row = mysqli_fetch_array( $result_rep ) ) {
-		if ( $cedula == $row[ "ALU_CEDULA" ] ) {
-			$repetido = 1;
-			$mensaje = "cédula";
-		}
-	}
-
 	if ( $repetido == 0 ) {
 		switch ( $ecivil ) {
 			case 'Administrador':
@@ -162,7 +138,7 @@
 					$query2 = "INSERT INTO alumno(AUL_CODIGO ,USU_CODIGO, ALU_NOMBRE , ALU_APELLIDO ,ALU_EMAIL , ALU_TELEFONO, ALU_CEDULA, ALU_FNACIMIENTO, ALU_DIRECCION, ALU_ESTADO) VALUES ('$aula','$codigou','$nombre','$apellido','$email','$telefono','$cedula','$fnacimiento','$direccion',1)";
 					$resultado2 = mysqli_query( $conn, $query2 );
 					if ( $resultado2 ) {
-						echo '<script>window.alert("Los datos de Alumno se han guardado con exito");
+						echo '<script>window.alert("Los datos de Alumno se han guardado con éxito");
 						window.location="../usuario_form_ing.php";</script>';
 					} else {
 						echo "<script>window.alert('Error al ingresar los datos de Alumno');window.history.go(-1);</script>";
@@ -175,7 +151,7 @@
 				echo "<script>window.alert('Algo salio mal');window.history.go(-1);</script>";
 		}
 	} else {
-		echo "<script>window.alert('Error al ingresar los datos de usuario, $mensaje ya existe, ingrese nuevamente'); window.history.go(-1);</script>";
+		echo "<script>window.alert('Error, $mensaje ya existe. Ingrese otro'); window.history.go(-1);</script>";
 	}
 
 	?>
