@@ -34,7 +34,7 @@
 	<div class="form-dividido2 formulario__grupo" id="grupo__fnacimiento"><p><label for="fnacimiento" class="formulario__label">Fecha de nacimiento </label></p>
 	<input type="date" class="formulario__input" name="fnacimiento" id="idfnacimiento" required  ></div></div>
 	
-	<div class="row"><div class="info"><i class="far fa-question-circle"></i> El usuario y la clave se generan automáticamente, si desea cambiarlos modifique el contenido</div>
+	<div class="row"><div class="info"><i class="far fa-question-circle"></i> El usuario se genera automáticamente, si desea cambiarlos modifique el contenido</div>
 	<div class="form-dividido2 formulario__grupo" id="grupo__nombreusuario"><p><label for="nombreusuario" class="formulario__label" >Nombre de usuario </label></p>
 	<input type="text" class="formulario__input" name="nombreusuario" id="idnombreusuario" value="" placeholder="Usuario" required ><i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> No puede ingresar caracteres especiales ni espacios</p></div>

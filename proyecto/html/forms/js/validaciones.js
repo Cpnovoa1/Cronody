@@ -131,15 +131,15 @@ const campos = {
 	apellido: true,
 	cedula: true,
 	nombreusuario:true,
+	claveusuario:true,
 	adm_direccion: true,
 	adm_telefono: true,
 	sup_direccion: true,
 	sup_telefono: true,
 	doc_direccion: true,
+	doc_telefono: true,
 	alu_direccion: true,
 	alu_email: true,
-	claveusuario:true,
-	doc_telefono: true,
 	alu_telefono: true,
 	curso: true
 }
@@ -151,24 +151,64 @@ function validarRol(){
 			ocultarForm('docente','8');
 			ocultarForm('alumno','10');
 			desplegarForm('admin','7');
+			document.getElementById('idtelefono').required = true;
+			document.getElementById('adm_direccion').required = true;
+
+			document.getElementById('sup_direccion').required = false;
+			document.getElementById('sup_telefono').required = false;
+			document.getElementById('doc_direccion').required = false;
+			document.getElementById('doc_telefono').required = false;
+			document.getElementById('alu_email').required = false;
+			document.getElementById('alu_direccion').required = false;
+			document.getElementById('alu_telefono').required = false;
 		break;
 		case "Supervisor":
 			ocultarForm('admin','7');
 			ocultarForm('docente','8');
 			ocultarForm('alumno','10');
 			desplegarForm('supervisor','9');
+			document.getElementById('sup_direccion').required = true;
+			document.getElementById('sup_telefono').required = true;
+			
+			document.getElementById('idtelefono').required = false;
+			document.getElementById('adm_direccion').required = false;
+			document.getElementById('doc_direccion').required = false;
+			document.getElementById('doc_telefono').required = false;
+			document.getElementById('alu_email').required = false;
+			document.getElementById('alu_direccion').required = false;
+			document.getElementById('alu_telefono').required = false;
 		break;
 		case "Docente":
 			ocultarForm('supervisor','9');
 			ocultarForm('admin','6');
 			ocultarForm('alumno','10');
 			desplegarForm('docente','8');
+			document.getElementById('doc_direccion').required = true;
+			document.getElementById('doc_telefono').required = true;
+			
+			document.getElementById('idtelefono').required = false;
+			document.getElementById('adm_direccion').required = false;
+			document.getElementById('sup_direccion').required = false;
+			document.getElementById('sup_telefono').required = false;
+			document.getElementById('alu_email').required = false;
+			document.getElementById('alu_direccion').required = false;
+			document.getElementById('alu_telefono').required = false;
 		break;
 		case "Alumno":
 			ocultarForm('supervisor','9');
 			ocultarForm('docente','7');
 			ocultarForm('admin','6');
 			desplegarForm('alumno','10');
+			document.getElementById('alu_email').setAttribute("required","");
+			document.getElementById('alu_direccion').setAttribute("required","");
+			document.getElementById('alu_telefono').setAttribute("required","");
+			
+			document.getElementById('idtelefono').required = false;
+			document.getElementById('adm_direccion').required = false;
+			document.getElementById('sup_direccion').required = false;
+			document.getElementById('sup_telefono').required = false;
+			document.getElementById('doc_direccion').required = false;
+			document.getElementById('doc_telefono').required = false;
 		break;
 		case "":
 			ocultarForm('supervisor','9');

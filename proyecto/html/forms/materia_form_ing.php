@@ -21,7 +21,7 @@
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar letras</p></div>
 
 	<div class="form-dividido2 formulario__grupo" id="grupo__apellido"><p><label for="apellido" class="formulario__label">Área de conocimiento </label></p>
-	<input type="text" class="formulario__input" name="apellido" id="idarea" placeholder="Ejemplo: Matematicas " required>
+	<input type="text" class="formulario__input" name="apellido" id="idarea" placeholder="Ejemplo: Matemática" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar letras</p></div></div>
 	

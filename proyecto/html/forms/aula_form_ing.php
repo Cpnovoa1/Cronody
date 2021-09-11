@@ -17,13 +17,13 @@
 	
 	<div class="row">
 	<div class="form-dividido2 formulario__grupo" id="grupo__nombre"><p><label for="nombre" class="formulario__label">Paralelo </label></p>
-	<input type="text" class="formulario__input" name="nombre" id="idnombre" placeholder="Ingrese el paralelo ej: A" required><i class="formulario__validacion-estado fas fa-times-circle"></i>
-	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar letras</p></div>
+	<input type="text" class="formulario__input" name="nombre" id="idnombre" placeholder="Ejemplo: A" pattern="[A-Z]{1}" required><i class="formulario__validacion-estado fas fa-times-circle"></i>
+	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i>No puede ingresar caracteres especiales. Ejm: 1ro Básica ó 1ro BGU</p></div>
 
 	<div class="form-dividido2 formulario__grupo" id="grupo__curso"><p><label for="curso" class="formulario__label">Aula curso </label></p>
-	<input type="text" class="formulario__input" name="curso" id="idcurso" placeholder="Ingrese el curso ej: 2do Básica" required>
+	<input type="text" class="formulario__input" name="curso" id="idcurso" placeholder="Ejemplo: 2do Básica" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
-	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Puede ingresar letras y numeros</p></div></div>
+	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo puede ingresar una letra mayúscula. Ejm: A</p></div></div>
 	<input type="hidden" value="2000-01-02" id="idfnacimiento">
 	<input type="hidden" id="idecivil" value="Aula">
 	<div class="row formulario__grupo" id="grupo__ecivil"><p><label for="ecivil" class="formulario__label">Nivel</label></p>

@@ -33,27 +33,27 @@
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Debe ingresar una cédula ecuatoriana válida</p></div>
 		
 	<div class="form-dividido2 formulario__grupo" id="grupo__fnacimiento"><p><label for="fnacimiento" class="formulario__label">Fecha de nacimiento </label></p>
-	<input type="date" class="formulario__input" name="fnacimiento" id="idfnacimiento" required  ></div></div>
+	<input type="date" class="formulario__input" name="fnacimiento" id="idfnacimiento" required></div></div>
 	
 	<div class="row"><div class="info"><i class="far fa-question-circle"></i> El usuario y la clave se generan automáticamente, si desea cambiarlos modifique el contenido</div>
 	<div class="form-dividido2 formulario__grupo" id="grupo__nombreusuario"><p><label for="nombreusuario" class="formulario__label" >Nombre de usuario </label></p>
-	<input type="text" class="formulario__input" name="nombreusuario" id="idnombreusuario" value="" placeholder="Usuario" required ><i class="formulario__validacion-estado fas fa-times-circle"></i>
+	<input type="text" class="formulario__input" name="nombreusuario" id="idnombreusuario" value="" placeholder="Usuario" required><i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> No puede ingresar caracteres especiales ni espacios</p></div>
 		
 	<div class="form-dividido2 formulario__grupo" id="grupo__claveusuario">
 	<p><label for="usuario" class="formulario__label" >Clave</label></p>
-	<input type="text" class="formulario__input" name="claveusuario" id="idclaveusuario" value="" placeholder="Contraseña" required ><i class="formulario__validacion-estado fas fa-times-circle"></i><p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> La clave debe contener al menos 1 mayúscula, 1 minúscula y 1 número. Debe tener entre 8 a 16 caracteres.</p>
+	<input type="text" class="formulario__input" name="claveusuario" id="idclaveusuario" value="" placeholder="Contraseña" required><i class="formulario__validacion-estado fas fa-times-circle"></i><p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> La clave debe contener al menos 1 mayúscula, 1 minúscula y 1 número. Debe tener entre 8 a 16 caracteres.</p>
 	</div></div>
 	
 	<div class="row formulario__grupo" id="grupo__alu_email"><p><label for="email" class="formulario__label">Email </label></p>
-	<input type="email" class="formulario__input" name="alu_email" id="alu_email" placeholder="Ingrese el correo electrónico">
+	<input type="email" class="formulario__input" name="alu_email" id="alu_email" placeholder="Ingrese el correo electrónico" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Debe ingresar un formato de correo válido. Ej: ejemplo@ejemplo.com</p></div><div class="row formulario__grupo" id="grupo__alu_direccion"><p><label for="direccion" class="formulario__label">Dirección </label></p>
-	<input type="text" class="formulario__input" name="alu_direccion" id="alu_direccion" placeholder="Ingrese la dirección">
+	<input type="text" class="formulario__input" name="alu_direccion" id="alu_direccion" placeholder="Ingrese la dirección" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Puede ingresar caracteres alfa-numéricos y sólo algunos especiales (/ * # - .)</p></div><div class="row">
 	<div class="row formulario__grupo" id="grupo__alu_telefono"><p><label for="telefono" class="formulario__label">Teléfono </label></p>
-	<input type="tel" class="formulario__input" name="alu_telefono" id="alu_telefono" placeholder="Ingrese el teléfono">
+	<input type="tel" class="formulario__input" name="alu_telefono" id="alu_telefono" placeholder="Ingrese el teléfono" required>
 	<i class="formulario__validacion-estado fas fa-times-circle"></i>
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Sólo caracteres numéricos del 7 a 10 dígitos</p></div></div>
 		<div class="row formulario__grupo"><p><label for="ecivil" class="formulario__label">Aula</label></p>
