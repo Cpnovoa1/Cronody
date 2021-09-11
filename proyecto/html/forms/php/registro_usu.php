@@ -65,7 +65,7 @@
 					$query2 = "INSERT INTO administrador(USU_CODIGO, ADM_NOMBRE, ADM_APELLIDO, ADM_TELEFONO, ADM_CEDULA, ADM_FNACIMIENTO, ADM_DIRECCION, ADM_ESTADO) VALUES ('$codigou','$nombre','$apellido','$telefono','$cedula','$fnacimiento','$direccion',1)";
 					$resultado2 = mysqli_query( $conn, $query2 );
 					if ( $resultado2 ) {
-						echo '<script>window.alert("Los datos de Administrador se han guardado con exito");
+						echo '<script>window.alert("Los datos de Administrador se han guardado exitosamente");
 				window.location="../usuario_form_ing.php";</script>';
 					} else {
 						echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
@@ -88,7 +88,7 @@
 					$query2 = "INSERT INTO supervisor(USU_CODIGO, SUP_NOMBRE , SUP_APELLIDO, SUP_TELEFONO , SUP_CEDULA, SUP_FNACIMIENTO , SUP_DIRECCION , SUP_ESTADO ) VALUES ('$codigou','$nombre','$apellido','$telefono','$cedula','$fnacimiento','$direccion',1)";
 					$resultado2 = mysqli_query( $conn, $query2 );
 					if ( $resultado2 ) {
-						echo '<script>window.alert("Los datos de Supervisor se han guardado con exito");
+						echo '<script>window.alert("Los datos de Supervisor se han guardado exitosamente");
 						window.location="../usuario_form_ing.php";</script>';
 					} else {
 						echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
@@ -112,7 +112,7 @@
 					$query2 = "INSERT INTO docente(USU_CODIGO, DOC_NOMBRE, DOC_APELLIDO, DOC_TELEFONO, DOC_CEDULA, DOC_FNACIMIENTO, DOC_DIRECCION, DOC_CARGAHORARIA ,DOC_ESTADO) VALUES ('$codigou','$nombre','$apellido','$telefono','$cedula','$fnacimiento','$direccion','$carga',1)";
 					$resultado2 = mysqli_query( $conn, $query2 );
 					if ( $resultado2 ) {
-						echo '<script>window.alert("Los datos de Docente se han guardado con exito");
+						echo '<script>window.alert("Los datos de Docente se han guardado exitosamente");
 				window.location="../usuario_form_ing.php";</script>';
 					} else {
 						echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
@@ -138,7 +138,7 @@
 					$query2 = "INSERT INTO alumno(AUL_CODIGO ,USU_CODIGO, ALU_NOMBRE , ALU_APELLIDO ,ALU_EMAIL , ALU_TELEFONO, ALU_CEDULA, ALU_FNACIMIENTO, ALU_DIRECCION, ALU_ESTADO) VALUES ('$aula','$codigou','$nombre','$apellido','$email','$telefono','$cedula','$fnacimiento','$direccion',1)";
 					$resultado2 = mysqli_query( $conn, $query2 );
 					if ( $resultado2 ) {
-						echo '<script>window.alert("Los datos de Alumno se han guardado con éxito");
+						echo '<script>window.alert("Los datos de Alumno se han guardado exitosamente");
 						window.location="../usuario_form_ing.php";</script>';
 					} else {
 						echo "<script>window.alert('Error al ingresar los datos de Alumno');window.history.go(-1);</script>";
