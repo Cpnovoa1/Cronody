@@ -31,7 +31,7 @@
 			<tr>
 				<th>N</th>
 				<th>Curso Actual</th>
-				<th>Supervisor</th>
+				<th>Creado por</th>
 				<th>Año alectivo</th>
 				<th>Estado</th>
 				
@@ -51,7 +51,7 @@
 				while ( $row = mysqli_fetch_array( $result ) ) {
 					echo '<tr><td>' .$cont. '</td>';
 					echo '<td>' . $row[ "AUL_CURSO" ] .'"' .$row[ "AUL_NOMBRE" ].'"'.'</td>';
-					echo '<td>' . $row[ "SUP_NOMBRE" ] . '</td>';
+					echo '<td>' . $row[ "SUP_NOMBRE" ] . ' ' . $row[ "SUP_APELLIDO" ] .'</td>';
 					echo '<td>' . $row[ "HOR_ALECTIVO" ] . '</td>';
 					
 					if($row['HOR_ESTADO']=='1'){$estado = 'title="Eliminar" class="tabla-registro-elim btn-eliminar-a"><i class="fas fa-trash"></i>'; $est = "Activo";}

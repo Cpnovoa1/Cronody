@@ -134,7 +134,7 @@
                     //copia = "<div>"  + dragged.innerHTML + "</div>";
 					
 					copia = '<div class="cont-elem '+tipo+'"><div class="elem-icono"><i class="'+icon+' fa-2x"></i></div>'+
-							'<div class="elem-box"><div class="box-docen">'+ materia +'</div><div class="box-info">'+ docenten +'</div></div></div></div>';
+							'<div class="elem-box"><div class="box-docen">'+ materia +'</div><div class="box-info">'+ docenten +'</div></div></div>';
 
                     event.dataTransfer.setData('Text', copia);
 
@@ -233,7 +233,7 @@
 								});            
 							});
 						} else if(recibio == '0'){
-							alert("Hubo un error con el envio de datos");
+							alert("No se pudo colocar la materia");
 						} else if(recibio == '2'){
 							alert("El docente ya no está disponible");
 						} else if(recibio == '3'){

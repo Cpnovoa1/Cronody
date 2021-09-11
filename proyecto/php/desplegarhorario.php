@@ -31,7 +31,12 @@ $paralelo=$_POST['paralelo'];
 		$ver = 3;
 		$cadena="";
 		while ($ver!=0) {
-			$cadena=$cadena.'<tr><td>'.$horaInicial.' A '.$nuevaHora.'</td><td></td><td></td><td></td><td></td><td></td></tr>';
+			$cadena=$cadena.'<tr><td>'.$horaInicial.' A '.$nuevaHora.'</td>
+			<td class="dropzone" idhoraIni="'.$horaInicial.'" idhoraFin="'.$nuevaHora.'" iddia="1" idhorario="5" ><a style="margin-left:4px;" href="javascript:void(0)" ></a></td>
+			<td class="dropzone" idhoraIni="'.$horaInicial.'" idhoraFin="'.$nuevaHora.'" iddia="2" idhorario="5" ><a style="margin-left:4px;" href="javascript:void(0)" ></a></td>
+			<td class="dropzone" idhoraIni="'.$horaInicial.'" idhoraFin="'.$nuevaHora.'" iddia="3" idhorario="5" ><a style="margin-left:4px;" href="javascript:void(0)" ></a></td>
+			<td class="dropzone" idhoraIni="'.$horaInicial.'" idhoraFin="'.$nuevaHora.'" iddia="4" idhorario="5" ><a style="margin-left:4px;" href="javascript:void(0)" ></a></td>
+			<td class="dropzone" idhoraIni="'.$horaInicial.'" idhoraFin="'.$nuevaHora.'" iddia="5" idhorario="5" > <a style="margin-left:4px;" href="javascript:void(0)" ></a></td></tr>';
 			$horaInicial = $nuevaHora;
 			$minutoAnadir = 270;
 			if($ver == 2){$minutoAnadir = 35;}
