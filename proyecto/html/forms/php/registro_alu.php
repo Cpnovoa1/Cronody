@@ -28,7 +28,7 @@
 	$nombreUsuario = "admin";
 	$passwordBaseDeDatos = "admin";
 	$nombreBaseDeDatos = "horarios";
-
+	$myIP=getRealIP();
 	$conn = new mysqli( $nombreServidor, $nombreUsuario, $passwordBaseDeDatos, $nombreBaseDeDatos );
 
 	if ( $conn->connect_error ) {
@@ -70,6 +70,8 @@
 			if ( $resultado2 ) {
 				echo '<script>window.alert("Los datos de Alumno se han guardado con exito");
 				window.location="../alu_form_ing.php";</script>';
+				
+				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Agrego usuario: $user Tipo: Alumno',curTime(),CURDATE())");
 			} else {
 				echo "<script>window.alert('Error al ingresar los datos de Alumno');window.history.go(-1);</script>";
 			}
@@ -80,6 +82,16 @@
 			echo "<script>window.alert('Error, $mensaje ya existe. Ingrese otro'); window.history.go(-1);</script>";
 		}
 
+	function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+		return $_SERVER['REMOTE_ADDR'];
+	}	
 	?>
 </body>
 </html>

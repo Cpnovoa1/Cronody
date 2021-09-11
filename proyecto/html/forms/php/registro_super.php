@@ -44,6 +44,8 @@
 			break;
 		}
 	}
+	
+	$myIP=getRealIP();
 	$result_rep = mysqli_query( $conn, $query_rep1 );
 	while ( $row = mysqli_fetch_array( $result_rep ) ) {
 		if ( $cedula == $row[ "ADM_CEDULA" ] || $cedula == $row[ "SUP_CEDULA" ]|| $cedula == $row[ "DOC_CEDULA" ] || $cedula == $row[ "DOC_CEDULA" ]) {
@@ -67,6 +69,8 @@
 			if ( $resultado2 ) {
 				echo '<script>window.alert("Los datos de Supervisor se han guardado con éxito");
 				window.location="../sup_form_ing.html";</script>';
+				
+				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Agrego Usuario: $user Tipo: Supervisor',curTime(),CURDATE())");
 			} else {
 				echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
 			}
@@ -76,6 +80,17 @@
 	}else {
 			echo "<script>window.alert('Error, $mensaje ya existe. Ingrese otro'); window.history.go(-1);</script>";
 		}
+	
+	function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+		return $_SERVER['REMOTE_ADDR'];
+	}
 
 	?>
 </body>

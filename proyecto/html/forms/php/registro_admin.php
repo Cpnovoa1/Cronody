@@ -33,6 +33,7 @@
 		die( "Connection failed: " . $conn->connect_error );
 	}
 
+	$myIP=getRealIP();
 	$repetido = 0;
 	$query_rep1 = "Select u.USU_USER, a.ADM_CEDULA, s.SUP_CEDULA, d.DOC_CEDULA, al.ALU_CEDULA From administrador a, supervisor s, docente d, alumno al, usuario u";
 	
@@ -67,6 +68,8 @@
 			if ( $resultado2 ) {
 				echo '<script>window.alert("Los datos de Administrador se han guardado con exito");
 				window.location="../admin_form_ing.html";</script>';
+				
+				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Agrego usuario: $user Tipo: Administrador',curTime(),CURDATE())");
 			} else {
 				echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
 			}
@@ -76,6 +79,18 @@
 	}else {
 			echo "<script>window.alert('Error, $mensaje ya existe. Ingrese otro'); window.history.go(-1);</script>";
 		}
+	
+	
+	function getRealIP() {
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))
+			return $_SERVER['HTTP_CLIENT_IP'];
+
+		if (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+			return $_SERVER['HTTP_X_FORWARDED_FOR'];
+
+
+		return $_SERVER['REMOTE_ADDR'];
+	}
 
 	?>
 </body>
