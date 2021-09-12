@@ -5,6 +5,9 @@ $id = $_GET['u'];
 
 $consultar = "SELECT * FROM supervisor WHERE SUP_CODIGO='$id'";
 $result = mysqli_query( $conn, $consultar );
+
+session_start();
+$user_session = $_SESSION['user'];
 $myIP=getRealIP();
 
 while($row = mysqli_fetch_array($result)){
@@ -31,7 +34,7 @@ if($result2 && $resultu){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_supervisor.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Supervisor',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Modifico Estado Supervisor',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al eliminar");
