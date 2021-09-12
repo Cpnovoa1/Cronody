@@ -34,6 +34,8 @@
 	}
 
 	$myIP=getRealIP();
+	session_start();
+	$user_session = $_SESSION['user'];
 	$repetido = 0;
 	$query_rep1 = "Select u.USU_USER, a.ADM_CEDULA, s.SUP_CEDULA, d.DOC_CEDULA, al.ALU_CEDULA From administrador a, supervisor s, docente d, alumno al, usuario u";
 	
@@ -69,7 +71,7 @@
 				echo '<script>window.alert("Los datos de Administrador se han guardado con exito");
 				window.location="../admin_form_ing.html";</script>';
 				
-				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Agrego usuario: $user Tipo: Administrador',curTime(),CURDATE())");
+				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Agrego usuario: $user Tipo: Administrador',curTime(),CURDATE())");
 			} else {
 				echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
 			}

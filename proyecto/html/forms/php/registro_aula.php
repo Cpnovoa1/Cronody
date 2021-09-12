@@ -19,6 +19,9 @@
 
 	$conn = new mysqli( $nombreServidor, $nombreUsuario, $passwordBaseDeDatos, $nombreBaseDeDatos );
 	$myIP=getRealIP();
+	
+	session_start();
+	$user_session = $_SESSION['user'];
 	if ( $conn->connect_error ) {
 		die( "Connection failed: " . $conn->connect_error );
 	}
@@ -28,7 +31,7 @@
 		echo '<script>window.alert("Los datos de Aula se han guardado con exito");
 				window.location="../aula_form_ing.php";</script>';
 		
-		$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Registro Paralelo: $paralelo $curso $nivel',curTime(),CURDATE())");
+		$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Registro Paralelo: $paralelo $curso $nivel',curTime(),CURDATE())");
 	} else {
 		echo "<script>window.alert('Error al ingresar los datos de Aula');window.history.go(-1);</script>";
 	}

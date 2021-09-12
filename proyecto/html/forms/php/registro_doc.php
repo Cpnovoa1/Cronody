@@ -32,6 +32,9 @@
 	if ( $conn->connect_error ) {
 		die( "Connection failed: " . $conn->connect_error );
 	}
+	
+	session_start();
+	$user_session = $_SESSION['user'];
 
 	$myIP=getRealIP();
 	$repetido = 0;
@@ -70,7 +73,7 @@
 				echo '<script>window.alert("Los datos de Docente se han guardado con éxito");
 				window.location="../doc_form_ing.html";</script>';
 				
-				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Registro usuario: $user tipo: Docente',curTime(),CURDATE())");
+				$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Registro usuario: $user tipo: Docente',curTime(),CURDATE())");
 			} else {
 				echo "<script>window.alert('Error al ingresar los datos de Administador');window.history.go(-1);</script>";
 			}
