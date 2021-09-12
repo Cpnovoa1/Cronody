@@ -11,12 +11,16 @@ $direccion = $_POST['direccion'];
 $actualizar = "UPDATE docente SET DOC_NOMBRE='$nombre', DOC_APELLIDO='$apellido', DOC_TELEFONO='$telefono', DOC_FNACIMIENTO='$fnac', DOC_DIRECCION='$direccion'  WHERE DOC_CODIGO='$ide' ";
 $result2 = mysqli_query( $conn, $actualizar );
 $myIP=getRealIP();
+
+session_start();
+$user_session = $_SESSION['user'];
+
 if($result2){
 	echo '<script>
 			alert("Los datos se han actualizado correctamente");
 			window.location="editar_docente.php";
 		</script>';
-	$auditoria = mysqli_query( $conn,"INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Actualizo Docente',curTime(),CURDATE())");
+	$auditoria = mysqli_query( $conn,"INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Actualizo Docente',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al guardar");
