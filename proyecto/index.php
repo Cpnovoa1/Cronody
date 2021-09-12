@@ -60,7 +60,7 @@
 			
 			$myIP=getRealIP();
 			
-			$auditoria =$db->connect()->prepare("INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($rol,'$myIP','ENTRO',curTime(),CURDATE())");
+			$auditoria =$db->connect()->prepare("INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($usu,'$myIP','ENTRO',curTime(),CURDATE())");
 			$auditoria->execute();
 			
             $_SESSION['rol'] = $rol;
