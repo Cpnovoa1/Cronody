@@ -12,6 +12,9 @@ $r=true;
 $repetidos = "Select * From paralelo Where AUL_CODIGO<>'$ide'";
 $result = mysqli_query( $conn, $repetidos );
 $myIP=getRealIP();
+session_start();
+$user_session = $_SESSION['user'];
+
 while($row = mysqli_fetch_array($result)){
 	if($curso == $row['AUL_CURSO'] && $paral == $row['AUL_NOMBRE'] && $nivel == $row['NIV_CODIGO']){
 		echo '<script>alert("El registro ingresado ya existe!");</script>';
@@ -27,7 +30,7 @@ if($result2){
 			alert("Los datos se han actualizado correctamente");
 			window.location="editar_aulas.php";
 		</script>';
-	$auditoria = mysqli_query( $conn,"INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Actualizo Aula',curTime(),CURDATE())");
+	$auditoria = mysqli_query( $conn,"INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Actualizo Aula',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al guardar");
