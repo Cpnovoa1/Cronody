@@ -21,6 +21,9 @@ if($estado == '1'){
 $eliminar = "UPDATE usuario SET USU_ESTADO='$estado' WHERE USU_CODIGO='$id'";
 $result2 = mysqli_query( $conn, $eliminar );
 
+session_start();
+$user_session = $_SESSION['user'];
+
 $myIP=getRealIP();
 
 if($result2){
@@ -28,7 +31,7 @@ if($result2){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_usuarios.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Usuario',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Modifico Estado Usuario',curTime(),CURDATE())");
 	
 } else{
 	echo '<script>
