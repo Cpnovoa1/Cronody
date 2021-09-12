@@ -24,6 +24,8 @@ $result2 = mysqli_query( $conn, $eliminar );
 $eliminaru = "UPDATE usuario SET USU_ESTADO='$estado' WHERE USU_CODIGO='$usu'";
 $resultu = mysqli_query( $conn, $eliminaru );
 
+session_start();
+$user_session = $_SESSION['user'];
 $myIP=getRealIP();
 
 if($result2 && $resultu){
@@ -31,7 +33,7 @@ if($result2 && $resultu){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_admin.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Administrador',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Modifico Estado Administrador',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al eliminar");
