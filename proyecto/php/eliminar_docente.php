@@ -5,6 +5,8 @@ $id = $_GET['u'];
 
 $consultar = "SELECT * FROM docente WHERE DOC_CODIGO='$id'";
 $result = mysqli_query( $conn, $consultar );
+
+
 $myIP=getRealIP();
 
 while($row = mysqli_fetch_array($result)){
@@ -20,6 +22,9 @@ if($estado == '1'){
 	$msj = 'activado';
 }
 
+session_start();
+$user_session = $_SESSION['user'];
+
 $eliminar = "UPDATE docente SET DOC_ESTADO='$estado' WHERE DOC_CODIGO='$id'";
 $result2 = mysqli_query( $conn, $eliminar );
 $eliminaru = "UPDATE usuario SET USU_ESTADO='$estado' WHERE USU_CODIGO='$usu'";
@@ -30,7 +35,7 @@ if($result2 && $resultu){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_docente.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Docente',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Modifico Estado Docente',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al eliminar");
