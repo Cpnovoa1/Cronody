@@ -18,6 +18,9 @@ if($estado == '1'){
 	$msj = 'activado';
 }
 
+session_start();
+$user_session = $_SESSION['user'];
+
 $eliminar = "UPDATE materias SET MAT_ESTADO='$estado' WHERE MAT_CODIGO='$id'";
 $result2 = mysqli_query( $conn, $eliminar );
 
@@ -26,7 +29,7 @@ if($result2){
 			alert("Registro '.$msj.' correctamente");
 			window.location="editar_materia.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES (1,'$myIP','Modifico Estado Materia',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Modifico Estado Materia',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al eliminar");
