@@ -26,6 +26,8 @@ while($row = mysqli_fetch_array($result)){
 }
 
 $myIP=getRealIP();
+session_start();
+$user_session = $_SESSION['user'];
 
 if($r){$actualizar = "UPDATE usuario SET ROL_CODIGO='$rol', USU_USER='$user', USU_CLAVE='$clave' WHERE USU_CODIGO='$ide'";
 $result2 = mysqli_query( $conn, $actualizar );}
@@ -35,7 +37,7 @@ if($result2){
 			alert("Los datos se han actualizado correctamente");
 			window.location="editar_usuarios.php";
 		</script>';
-	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($rol,'$myIP','Actualizo Registro',curTime(),CURDATE())");
+	$auditoria = mysqli_query($conn, "INSERT INTO `auditoria`(`USU_CODIGO`, `AUD_IP`, `AUD_EVENTO`, `AUD_HORA`, `AUD_FECHA`) VALUES ($user_session,'$myIP','Actualizo Registro',curTime(),CURDATE())");
 } else{
 	echo '<script>
 			alert("Hubo un error al guardar");
