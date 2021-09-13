@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>Login</title>
 <link href="css/estiloIndex.css" rel="stylesheet" type="text/css">
 <link href="css/estiloformindex.css" rel="stylesheet" type="text/css">

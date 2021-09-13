@@ -91,3 +91,27 @@ body {
 
     }
 }
+@media screen and (max-width: 400px){
+	.contenedor{
+        width: 90%;
+    }
+    .contenedor-logo{
+        position: absolute;
+        margin-left: 80px;
+        margin-top: -500px;
+
+    }
+}
+
+@media screen and (max-width: 300px){
+	.contenedor{
+        width: 30%;
+    }
+    .contenedor-logo{
+        position: absolute;
+        margin-left: 90px;
+        margin-top: -600px;
+
+    }
+}
+
