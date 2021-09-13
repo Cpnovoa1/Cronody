@@ -38,7 +38,6 @@
 				<th>N°</th>
 				<th>Rol</th>
 				<th>Usuario</th>
-				<th>Clave</th>
 				<th>Estado</th>
 				<th>Operaciones</th>
 			</tr>
@@ -55,7 +54,6 @@
 					echo '<tr><td>' .$cont. '</td>';
 					echo '<td>' . $row[ "ROL_NOMBRE" ] . '</td>';
 					echo '<td>' . $row[ "USU_USER" ] . '</td>';
-					echo '<td>' . $row[ "USU_CLAVE" ] . '</td>';
 					if($row['USU_ESTADO']=='1'){$estado = 'title="Eliminar" class="tabla-registro-elim btn-eliminar-a"><i class="fas fa-trash"></i>'; $est = "Activo";}
 					else {$estado = 'title="Activar" class="btn-eliminar-i"><i class="fas fa-trash-restore"></i>'; $est = "Inactivo";}
 					echo '<td>' .$est. '</td>';
