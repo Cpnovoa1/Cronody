@@ -36,7 +36,7 @@ function validarForm() {
 }
 
 var fecha = fechaActual();
-document.getElementById("idfnacimiento").setAttribute("max", fecha);
+//document.getElementById("idfnacimiento").setAttribute("max", fecha);
 
 function fechaActual(){
 	const hoy = new Date();

@@ -33,7 +33,7 @@
 	<p class="formulario__input-error"><i class="fas fa-exclamation-circle"></i> Debe ingresar una cédula ecuatoriana válida</p></div>
 		
 	<div class="form-dividido2 formulario__grupo" id="grupo__fnacimiento"><p><label for="fnacimiento" class="formulario__label">Fecha de nacimiento </label></p>
-	<input type="date" class="formulario__input" name="fnacimiento" id="idfnacimiento" required></div></div>
+	<input type="date" class="formulario__input" name="fnacimiento" id="idfnacimiento" max="2015-09-13" required></div></div>
 	
 	<div class="row"><div class="info"><i class="far fa-question-circle"></i> El usuario y la clave se generan automáticamente, si desea cambiarlos modifique el contenido</div>
 	<div class="form-dividido2 formulario__grupo" id="grupo__nombreusuario"><p><label for="nombreusuario" class="formulario__label" >Nombre de usuario </label></p>
