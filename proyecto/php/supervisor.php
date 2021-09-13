@@ -29,7 +29,8 @@
     <link href="../css/barra_lateral.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <title>Document</title>
+	<link rel="shortcut icon" href="../img/logo_login_icono.svg">
+    <title>Cronody - Supervisor</title>
 </head>
 <body>
 	<div class="confirmacion" id="cuadroconfirmar">
@@ -75,7 +76,7 @@
             <ul class="sub-menu">
 			  <li><a class="link_name" href="#">Horarios</a></li>
               <li><a href="inicializar.php" target="iframe_a">Crear horario</a></li>
-              <li><a href="#">Modificar horario</a></li>
+              <li><a href="modificarHorairo.php" target="iframe_a">Modificar horario</a></li>
               <li><a href="editar_horario.php" target="iframe_a">Eliminar horario</a></li>
 			  <li><a href="solicitar_horario.php" target="iframe_a">Mostrar horario</a></li>
             </ul>

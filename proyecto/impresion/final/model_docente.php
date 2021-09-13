@@ -12,7 +12,7 @@ class Model extends Database{
         include('../../php/obtener_usuario.php');
 		$cod = $codigo;
 
-        $query = $this->connect()->query("Select * From horarios_materias o, horarios h, dias d, materias m, paralelo p, docente t Where o.HOR_CODIGO = h.HOR_CODIGO and o.DIA_CODIGO = D.DIA_CODIGO and o.MAT_CODIGO = m.MAT_CODIGO and p.HOR_CODIGO = h.HOR_CODIGO and m.DOC_CODIGO = t.DOC_CODIGO and t.DOC_CODIGO = '$cod'");
+        $query = $this->connect()->query("Select * From horarios_materias o, horarios h, dias d, materias m, paralelo p, docente t Where o.HOR_CODIGO = h.HOR_CODIGO and o.DIA_CODIGO = D.DIA_CODIGO and o.MAT_CODIGO = m.MAT_CODIGO and p.HOR_CODIGO = h.HOR_CODIGO and m.DOC_CODIGO = t.DOC_CODIGO and t.DOC_CODIGO = '$cod' and h.HOR_ESTADO = 1");
 
         if($query->rowCount()){
             while($row = $query->fetch()){

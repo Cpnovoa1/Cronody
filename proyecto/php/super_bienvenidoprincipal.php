@@ -48,7 +48,7 @@
 			<div class="cont-tabla decoloracion letra"><div  class="principales" style="text-align: center"> <i class='fa fa-calendar' ></i>&nbsp;<label >Horarios</label></div>
 			<a href="inicializar.php">Crear Horario</a>
 			<br>
-			<a href="">Modificar horario</a>
+			<a href="modificarHorairo.php">Modificar horario</a>
 			<br>
 			<a href="editar_horario.php">Eliminar Horario</a>
 			<br>

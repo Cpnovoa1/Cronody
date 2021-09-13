@@ -17,9 +17,7 @@ $html .= '<table>
 				<td>Materias</td>
                 <td>Día </td>
 				<td>Hora de inicio</td>
-                <td>Hora final </td>
-				<td>Estado </td>
-                
+                <td>Hora final </td>             
             </tr>';
 $cont = 1;
 foreach($lista['items'] as $item){
@@ -31,7 +29,7 @@ foreach($lista['items'] as $item){
 	else {$est = "Inactivo";}
 	
     $html .= '<tr>
-                <td>'.$cont.'</td><td>'.$curso.'</td> <td>'.$mat.'</td> <td>'.$item['DIA_NOMBRE'].'</td> <td>'.$item['HMA_HORAINICIO'].'</td> <td>'.$item['HMA_HORAFIN'].'</td> <td>'.$est.'</td>
+                <td>'.$cont.'</td><td>'.$curso.'</td> <td>'.$mat.'</td> <td>'.$item['DIA_NOMBRE'].'</td> <td>'.$item['HMA_HORAINICIO'].'</td> <td>'.$item['HMA_HORAFIN'].'</td>
               </tr>';
 	$cont++;
 }

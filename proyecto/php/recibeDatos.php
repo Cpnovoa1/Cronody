@@ -29,7 +29,7 @@ if(isset($_GET["anio"]) && isset($_GET["materia"]) && isset($_GET["doc"]) && iss
 		
 		//Query que valida si el docente ya da clases en el horario seleccionado
 		$repetido = 0;
-		$sql4 = "Select * From horarios_materias h, materias m, horarios o where h.MAT_CODIGO = m.MAT_CODIGO and h.HOR_CODIGO = o.HOR_CODIGO and o.HOR_ESTADO = 1";
+		$sql4 = "Select * From horarios_materias h, materias m, horarios o where h.MAT_CODIGO = m.MAT_CODIGO and h.HOR_CODIGO = o.HOR_CODIGO and o.HOR_ESTADO = 1 and h.HMA_ESTADO = 1";
 		$result4 = mysqli_query( $conn, $sql4);
 		
 		while($row4 = mysqli_fetch_array($result4)){

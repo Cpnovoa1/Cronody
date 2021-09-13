@@ -10,7 +10,7 @@ class Model extends Database{
         $clientes['items'] = array();
         
 
-        $query = $this->connect()->query("Select * From horarios_materias o, horarios h, dias d, materias m, paralelo p Where o.HOR_CODIGO = h.HOR_CODIGO and o.DIA_CODIGO = D.DIA_CODIGO and o.MAT_CODIGO = m.MAT_CODIGO and p.HOR_CODIGO = h.HOR_CODIGO");
+        $query = $this->connect()->query("Select * From horarios_materias o, horarios h, dias d, materias m, paralelo p Where o.HOR_CODIGO = h.HOR_CODIGO and o.DIA_CODIGO = D.DIA_CODIGO and o.MAT_CODIGO = m.MAT_CODIGO and p.HOR_CODIGO = h.HOR_CODIGO and h.HOR_ESTADO = 1");
 
         if($query->rowCount()){
             while($row = $query->fetch()){

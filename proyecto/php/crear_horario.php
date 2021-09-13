@@ -125,6 +125,10 @@
 
                     idmateria = event.target.getAttribute("idmateria");
 					iddocente = event.target.getAttribute("iddocente");
+					var horaIni = event.target.getAttribute("idhoraIni");
+					var horaFin = event.target.getAttribute("idhoraFin");
+					var dia = event.target.getAttribute("iddia");
+					var aula = document.getElementById("idparal").value;
 					
 					tipo = event.target.getAttribute("tipo");
 					icon = event.target.getAttribute("icono");
@@ -133,7 +137,7 @@
 
                     //copia = "<div>"  + dragged.innerHTML + "</div>";
 					
-					copia = '<div class="cont-elem '+tipo+'"><div class="elem-icono"><i class="'+icon+' fa-2x"></i></div>'+
+					copia = '<div class="cont-elem '+tipo+'"><div class="quitar" onClick="quitar()" id="idquitar" mat="'+idmateria+'" d="'+iddocente+'" hi="'+horaIni+'" hf="'+horaFin+'" di="'+dia+'" a="'+aula+'"><i class="fas fa-times"></i></div><div class="elem-icono"><i class="'+icon+' fa-2x"></i></div>'+
 							'<div class="elem-box"><div class="box-docen">'+ materia +'</div><div class="box-info">'+ docenten +'</div></div></div>';
 
                     event.dataTransfer.setData('Text', copia);
@@ -199,9 +203,7 @@
 						var docente1 = iddocente;
 						var supervisor = <?php echo $sup;?>;
                         event.target.style.height = "auto";
-						//docnete no guardar porque la materia ya especifica que docente es
-						//alert("HOra ini" +horaIni + "\n"+ "Hora fin" + horaFin + "\n DIa"+ dia + "\n MAteria" + materia1 + "\n Docente"+ docente1 + "\n Aula" + aula + "\n Supervisor" + supervisor + "\n Año" + anioLectivo);
-						//window.location = "recibehorario.php?horaIni=" + horaIni + "&horaFin=" + horaFin + "&dia=" + dia + "&materia=" + materia;
+
 						var recibio = "";
 						var variable = 0;
 						
@@ -259,10 +261,7 @@
 				}
 			}
 	
-	//Ojito Aca termina.
 	$(document).ready(function(){
-		//$('#idcurso').val('');
-			//recargarLista("#idcurso","#idparalelo","curso=","desplegarparalelo.php");
 			
 		$('#idcurso').change(function(){
 			$('#idarea').find('option').remove().end().append('<option value="whatever"></option>').val('whatever');
@@ -320,10 +319,23 @@
 				});            
 			});
 		});
+		
 	})
-	//OJO aca comienza el dropzone.
 	
-	//Ojo aca termina el dropzone.
+	//document.getElementById("idquitar").addEventListener("click",quitar());
+	
+	function quitar(){
+		/*var idmateria = event.target.getAttribute("mat");
+		var iddocente = event.target.getAttribute("d");
+		var horaIni = event.target.getAttribute("hi");
+		var horaFin = event.target.getAttribute("hf");
+		var dia = event.target.getAttribute("di");
+		var aula = event.target.getAttribute("a");
+		alert("Materia: "+idmateria+" Docente: "+iddocente+" Hor Ini: "+horaIni+" Hor Fin: "+horaFin+" Dia: "+dia+" Aula: "+aula);
+		*/
+
+		alert("Lo lamento, esta función aún no está disponible");
+	}
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

@@ -5,7 +5,7 @@ $docente=$_POST['docente'];
 	$sql="Select * From docente Where DOC_CODIGO = 
 			Any (Select DOC_CODIGO From materias Where NIV_CODIGO 
 			IN (Select NIV_CODIGO From materias Where MAT_CODIGO = '$docente') AND MAT_NOMBRE 
-			IN (Select MAT_NOMBRE From materias Where MAT_CODIGO = '$docente'))";
+			IN (Select MAT_NOMBRE From materias Where MAT_CODIGO = '$docente')) AND DOC_ESTADO = 1";
 
 	$result=mysqli_query($conexion,$sql);
 
